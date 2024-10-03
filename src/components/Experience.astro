@@ -1,6 +1,11 @@
 ---
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
+interface Props {
+	id: string;
+	tailwindClass: string;
+}
+
 const experiences = [
 	{
 		job: "Full Stack Developer",
@@ -35,8 +40,12 @@ const experiences = [
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam doloribus obcaecati consequuntur neque, nobis reiciendis aspernatur cumque at libero architecto.",
 	},
 ];
+
+const { id, tailwindClass } = Astro.props;
+
+export const prerender = true;
 ---
-<section class="w-full grid grid-cols-2 gap-10">
+<section id={id} class={tailwindClass}>
 	{experiences.map((experiences) => (
 		<div class="cursor-pointer rounded-xl py-5 px-10 experience-card border border-gray-800 hover:border-white transition-all duration-300 group">
 			<header class="flex flex-row w-full justify-between mb-2">
