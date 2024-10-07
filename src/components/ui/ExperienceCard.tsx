@@ -13,8 +13,12 @@ interface IExperienceCard {
 export const ExperienceCard: React.FC<IExperienceCard> = ({ experience }) => {
 	const toggleActivate = (event: React.MouseEvent<HTMLDivElement>) => {
 		const element = event.currentTarget;
+		element.classList.add("duration-100");
 		element.classList.add("bg-gray-800");
-		setTimeout(() => element.classList.remove("bg-gray-800"), 300);
+		setTimeout(() => {
+			element.classList.remove("duration-100");
+			element.classList.remove("bg-gray-800");
+		}, 300);
 	};
 
 	return (
