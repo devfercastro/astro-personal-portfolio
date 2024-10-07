@@ -3,19 +3,20 @@ import { capFirstLetter } from "@src/utils/utils";
 
 interface Props {
 	sections: string[];
+	tailwindClass: string;
 }
 
-const { sections } = Astro.props;
+const { sections, tailwindClass } = Astro.props;
 
 export const prerender = true;
 ---
-<nav class="w-full flex flex-col justify-between items-center mt-10">
+<nav class={tailwindClass} >
   <ul class="w-full flex flex-col justify-start items-start gap-y-5">
     {sections.map((section) => (
       <li class="w-full">
         <a 
           href={`#${section}`}
-          class="flex w-full px-5 py-3 rounded-lg font-medium text-lg text-left hover:bg-gray-300 hover:text-black transition-all duration-200"
+          class="flex w-full px-5 py-3 rounded-lg font-medium text-lg text-left hover:bg-white hover:text-black transition-all duration-200"
         >
           {capFirstLetter(section)}
         </a>
