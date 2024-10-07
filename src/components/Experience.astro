@@ -46,7 +46,7 @@ const { id, tailwindClass } = Astro.props;
 export const prerender = true;
 ---
 <section id={id} class={tailwindClass}>
-	<h1 class="text-xl font-medium lg:hidden">Experience</h1>
+	<h1 class="text-xl font-medium mb-5 lg:hidden">Experience</h1>
 	<div class="w-full flex flex-col gap-y-5 lg:grid lg:grid-cols-2 lg:gap-10">
 		{experiences.map((experience) => <ExperienceCard experience={experience} client:load />)}
 	</div>
