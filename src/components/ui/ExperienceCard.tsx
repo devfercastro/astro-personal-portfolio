@@ -1,4 +1,4 @@
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import { ArrowTopRightOnSquareIcon } from "@ui/icons/Icons";
 
 interface IExperienceCard {
 	experience: {
