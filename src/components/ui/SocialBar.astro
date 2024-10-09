@@ -1,0 +1,27 @@
+---
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "@ui/icons/Icons";
+
+interface Props {
+	id?: string;
+	tailwindClass: string;
+}
+
+const { id, tailwindClass } = Astro.props;
+
+const iconSize = 25;
+const iconHoverAnimation =
+	"lg:text-gray-400 hover:text-white transition-colors duration-300";
+
+export const prerender = true;
+---
+<div id={id} class={tailwindClass}>
+  <a href="https://github.com/devfercastro" target="_blank" rel="noopener noreferrer">
+    <GithubIcon height={iconSize} width={iconSize} className={iconHoverAnimation} />
+  </a>
+  <a href="https://www.linkedin.com/in/devfercastro/" target="_blank" rel="noopener noreferrer">
+    <LinkedinIcon height={iconSize} width={iconSize}  className={iconHoverAnimation} />
+  </a>
+  <a href="https://twitter.com/devfercastro" target="_blank" rel="noopener noreferrer">
+    <TwitterIcon height={iconSize} width={iconSize}  className={iconHoverAnimation} />
+  </a>
+</div>
