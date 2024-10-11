@@ -1,5 +1,5 @@
 ---
-import { ChevronDownIcon } from "@ui/icons/Icons";
+import ChevronDownIcon from "@ui/icons/ChevronDownIcon.astro";
 
 interface Props {
 	tailwindClass: string;
@@ -21,7 +21,7 @@ export const prerender = true;
     class="absolute bottom-10"
     >
     <ChevronDownIcon
-		className="chevron-icon w-14 h-14 cursor-pointer opacity-0 animate-bounce-delayed"
+		class="chevron-icon w-14 h-14 cursor-pointer opacity-0 animate-bounce-delayed"
     style={{
 			animationDelay: "2000ms",
 		}}/>

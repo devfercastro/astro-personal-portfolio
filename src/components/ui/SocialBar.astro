@@ -1,5 +1,7 @@
 ---
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@ui/icons/Icons";
+import GithubIcon from "@ui/icons/GithubIcon.astro";
+import LinkedinIcon from "@ui/icons/LinkedinIcon.astro";
+import TwitterIcon from "@ui/icons/TwitterIcon.astro";
 
 interface Props {
 	id?: string;
@@ -8,20 +10,21 @@ interface Props {
 
 const { id, tailwindClass } = Astro.props;
 
-const iconSize = 25;
-const iconHoverAnimation =
-	"lg:text-gray-400 hover:text-white transition-colors duration-300";
+const socialIconProps = {
+	size: 25,
+	animation: "lg:text-gray-400 hover:text-white transition-colors duration-300",
+};
 
 export const prerender = true;
 ---
 <div id={id} class={tailwindClass}>
   <a href="https://github.com/devfercastro" target="_blank" rel="noopener noreferrer">
-    <GithubIcon height={iconSize} width={iconSize} className={iconHoverAnimation} />
+    <GithubIcon height={socialIconProps.size} width={socialIconProps.size} class={socialIconProps.animation} />
   </a>
   <a href="https://www.linkedin.com/in/devfercastro/" target="_blank" rel="noopener noreferrer">
-    <LinkedinIcon height={iconSize} width={iconSize}  className={iconHoverAnimation} />
+    <LinkedinIcon height={socialIconProps.size} width={socialIconProps.size}  class={socialIconProps.animation} />
   </a>
   <a href="https://twitter.com/devfercastro" target="_blank" rel="noopener noreferrer">
-    <TwitterIcon height={iconSize} width={iconSize}  className={iconHoverAnimation} />
+    <TwitterIcon height={socialIconProps.size} width={socialIconProps.size}  class={socialIconProps.animation} />
   </a>
 </div>
