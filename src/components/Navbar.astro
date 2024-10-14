@@ -28,7 +28,9 @@ export const prerender = true;
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
+    // Get all sections
     const sections = document.querySelectorAll("section.content-section");
+    // Get all nav buttons
     const navItems = document.querySelectorAll("nav ul li a");
 
     const callback = (entries) => {
@@ -49,24 +51,21 @@ export const prerender = true;
       })
     }
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    });
-
-    // Observe each section
     sections.forEach((section) => {
-      observer.observe(section);
-    });
+      // Get the section height
+      const sectionHeight = section.getBoundingClientRect().height;
+      // Dinamically set the threshold based on the section height
+      const threshold = sectionHeight > window.innerHeight ? 0.3 : 0.5;
 
-    // If the page is hidden, disconnect the observer (to save resources)
-    document.onvisibilitychange = () => {
-      if(document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        observer.observe(sections);
-      }
-    }
+      // Create a custom observer for the current section
+      const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: "0px",
+        threshold: threshold,
+      })
+
+      // Observe the section
+      observer.observe(section);
+    })
   })
 </script>
