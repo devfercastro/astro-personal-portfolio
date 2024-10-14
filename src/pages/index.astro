@@ -7,7 +7,20 @@ import Experience from "@components/Experience.astro";
 import Projects from "@components/Projects.astro";
 import SocialBar from "@components/ui/SocialBar.astro";
 
-const sections = ["about", "experience", "projects"];
+const sections = [
+	{
+		id: "about",
+		url: "/#about",
+	},
+	{
+		id: "experience",
+		url: "/#experience",
+	},
+	{
+		id: "projects",
+		url: "/#projects",
+	},
+];
 
 export const prerender = true;
 ---
@@ -23,9 +36,9 @@ export const prerender = true;
 				<SocialBar tailwindClass="mt-[2rem] flex flex-row justify-start gap-x-[2rem] lg:pb-12 lg:mt-auto"/>
 			</div>
 			<div class="h-full w-full lg:overflow-auto flex flex-col gap-y-32 scrollbar-hide scroll-smooth pb-20 lg:pt-10">
-				<About id="about" tailwindClass="w-full text-lg"/>
-				<Experience id="experience" tailwindClass="" />
-				<Projects id="projects" tailwindClass="" />
+				<About id="about" tailwindClass="content-section w-full text-lg"/>
+				<Experience id="experience" tailwindClass="content-section" />
+				<Projects id="projects" tailwindClass="content-section" />
 			</div>
 		</div>
 		<footer class="p-10 text-sm lg:hidden">

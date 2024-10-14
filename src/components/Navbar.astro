@@ -2,7 +2,7 @@
 import { capFirstLetter } from "@src/utils/utils";
 
 interface Props {
-	sections: string[];
+	sections: { id: string; url: string }[];
 	tailwindClass: string;
 }
 
@@ -12,15 +12,61 @@ export const prerender = true;
 ---
 <nav class={tailwindClass} >
   <ul class="w-full flex flex-col justify-start items-start gap-y-5">
-    {sections.map((section) => (
+    {sections.map(({url, id}) => (
       <li class="w-full">
         <a 
-          href={`#${section}`}
-          class="flex w-full px-5 py-3 rounded-lg font-medium text-lg text-left hover:bg-white hover:text-black transition-all duration-200"
+          href={url}
+          class="flex w-full px-5 py-3 rounded-lg font-medium text-lg text-left hover:bg-white hover:text-black transition-all duration-300"
+          aria-label={id}
         >
-          {capFirstLetter(section)}
+          {capFirstLetter(id)}
         </a>
       </li>
     ))}
   </ul>
 </nav>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section.content-section");
+    const navItems = document.querySelectorAll("nav ul li a");
+
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        // If the section is visible
+        if(entry.isIntersecting) {
+          navItems.forEach((item) => {
+            // If the nav item belongs to the current section
+            if(item.getAttribute("aria-label") === entry.target.id) {
+              // Add the highlight
+              item.classList.add("bg-white", "text-black");
+            } else {
+              // Remove the highlight
+              item.classList.remove("bg-white", "text-black");
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+
+    // Observe each section
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // If the page is hidden, disconnect the observer (to save resources)
+    document.onvisibilitychange = () => {
+      if(document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        observer.observe(sections);
+      }
+    }
+  })
+</script>
