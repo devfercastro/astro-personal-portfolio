@@ -55,7 +55,7 @@ export const prerender = true;
       // Get the section height
       const sectionHeight = section.getBoundingClientRect().height;
       // Dinamically set the threshold based on the section height
-      const threshold = sectionHeight > window.innerHeight ? 0.3 : 0.5;
+      const threshold = sectionHeight > window.innerHeight ? 0.3 : 0.6;
 
       // Create a custom observer for the current section
       const observer = new IntersectionObserver(callback, {
