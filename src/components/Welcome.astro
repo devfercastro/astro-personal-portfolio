@@ -1,5 +1,6 @@
 ---
 import ChevronDownIcon from "@ui/icons/ChevronDownIcon.astro";
+import { welcomeContent } from "@src/content";
 
 interface Props {
 	tailwindClass: string;
@@ -15,7 +16,7 @@ export const prerender = true;
     style={{
       animationDelay: "1000ms",
     }}
-    >Hello I'm Fernando.</h1>
+    >{welcomeContent}</h1>
 	<a 
     href="#mainContent"
     class="absolute bottom-10"
