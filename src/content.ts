@@ -24,6 +24,6 @@ export const projectsContent: ProjectsItem[] = [
 		title: "Portfolio",
 		description: "Personal portfolio built with Astro and Tailwind CSS",
 		image: "/projects/portfolio.png",
-		link: "https://github.com/devfercastro/personal-portfolio",
+		link: "https://github.com/devfercastro/astro-personal-portfolio",
 	},
 ];
