@@ -1,37 +1,11 @@
 ---
 import Card from "@src/components/ui/Card.astro";
+import { projectsContent } from "@src/content";
 
 interface Props {
 	id: string;
 	tailwindClass: string;
 }
-
-const projectList = [
-	{
-		title: "Project 1",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.",
-		image:
-			"https://websavers.ca/wp-content/uploads/2014/02/preview-website-plesk-wordpress-websavers.jpg",
-		link: "https://github.com/devfercastro/",
-	},
-	{
-		title: "Project 2",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.",
-		image:
-			"https://websavers.ca/wp-content/uploads/2014/02/preview-website-plesk-wordpress-websavers.jpg",
-		link: "https://github.com/devfercastro/",
-	},
-	{
-		title: "Project 3",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.",
-		image:
-			"https://websavers.ca/wp-content/uploads/2014/02/preview-website-plesk-wordpress-websavers.jpg",
-		link: "https://github.com/devfercastro/",
-	},
-];
 
 const { id, tailwindClass } = Astro.props;
 
@@ -40,7 +14,7 @@ export const prerender = true;
 <section id={id} class={tailwindClass}>
 	<h2 class="text-xl font-medium mb-5 lg:hidden">Projects</h2>
   <ul class="flex flex-col gap-y-10">
-		{projectList.map((project) => (
+		{projectsContent.map((project) => (
 			<Card 
 				title={project.title}
 				body={project.description}
