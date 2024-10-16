@@ -1,5 +1,5 @@
 ---
-import ExperienceCard from "@src/components/ui/ExperienceCard.astro";
+import Card from "@src/components/ui/Card.astro";
 
 interface Props {
 	id: string;
@@ -14,6 +14,7 @@ const experiences = [
 		to: "Present",
 		description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam doloribus obcaecati consequuntur neque, nobis reiciendis aspernatur cumque at libero architecto.",
+		url: "https://www.facebook.com",
 	},
 	{
 		job: "Full Stack Developer",
@@ -22,6 +23,7 @@ const experiences = [
 		to: "Present",
 		description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam doloribus obcaecati consequuntur neque, nobis reiciendis aspernatur cumque at libero architecto.",
+		url: "https://www.facebook.com",
 	},
 	{
 		job: "Full Stack Developer",
@@ -30,6 +32,7 @@ const experiences = [
 		to: "Present",
 		description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam doloribus obcaecati consequuntur neque, nobis reiciendis aspernatur cumque at libero architecto.",
+		url: "https://www.facebook.com",
 	},
 	{
 		job: "Full Stack Developer",
@@ -38,6 +41,7 @@ const experiences = [
 		to: "Present",
 		description:
 			"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam doloribus obcaecati consequuntur neque, nobis reiciendis aspernatur cumque at libero architecto.",
+		url: "https://www.facebook.com",
 	},
 ];
 
@@ -47,7 +51,13 @@ export const prerender = true;
 ---
 <section id={id} class={tailwindClass}>
 	<h1 class="text-xl font-medium mb-5 lg:hidden">Experience</h1>
-	<div class="w-full flex flex-col gap-y-5 lg:grid lg:grid-cols-2 lg:gap-10">
-		{experiences.map((experience) => <ExperienceCard experience={experience} />)}
-	</div>
+	<ul class="w-full flex flex-col gap-y-5">
+		{experiences.map((experience) => (
+			<Card 
+				title={experience.job}
+				subtitle={`${experience.company} (${experience.from} - ${experience.to})`}
+				body={experience.description}
+				url={experience.url} />
+		))}
+	</ul>
 </section>
