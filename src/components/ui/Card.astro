@@ -14,7 +14,7 @@ const { title, subtitle, body, img, url } = Astro.props;
 <li>
   <a
     href={url}
-    class="flex flex-col lg:flex-row lg:items-center lg:justify-between cursor-pointer min-h-40 rounded-md p-5 lg:px-10 border border-white lg:border-black hover:border-white transition-all duration-100 lg:duration-300 group"
+    class="flex flex-col lg:flex-row lg:items-center lg:justify-between cursor-pointer min-h-40 rounded-md p-5 lg:p-8 border border-white lg:border-black hover:border-white transition-all duration-100 lg:duration-300 group"
     target="_blank"
   >
     {img && <img src={img} alt={title} class="w-full lg:w-1/2 h-full mb-4 lg:mb-0 object-cover rounded-md" />}
