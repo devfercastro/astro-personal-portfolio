@@ -16,7 +16,7 @@ export const prerender = true;
       <li class="w-full">
         <a 
           href={url}
-          class="flex w-full px-5 py-3 rounded-md font-medium text-lg text-left hover:bg-white hover:text-black transition-all duration-300"
+          class="flex w-full px-5 py-3 rounded-md font-medium text-lg text-left hover:bg-[var(--bg-alt)] hover:text-[var(--text-alt)] transition-all duration-300"
           aria-label={id}
         >
           {capFirstLetter(id)}
@@ -41,10 +41,10 @@ export const prerender = true;
             // If the nav item belongs to the current section
             if(item.getAttribute("aria-label") === entry.target.id) {
               // Add the highlight
-              item.classList.add("bg-white", "text-black");
+              item.classList.add("bg-[var(--bg-alt)]", "text-[var(--text-alt)]");
             } else {
               // Remove the highlight
-              item.classList.remove("bg-white", "text-black");
+              item.classList.remove("bg-[var(--bg-alt)]", "text-[var(--text-alt)]");
             }
           })
         }

@@ -25,14 +25,18 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-    --light: #fff;
-    --dark: #000;
+    --bg: #fff;
+    --bg-alt: #000;
+    --text: #000;
+    --text-alt: #fff;
 	}
 
 	html {
 		font-family: "Inter Tight", system-ui, sans-serif;
 		scroll-margin-top: 100px;
 		scroll-behavior: smooth;
+		background: var(--bg);
+		color: var(--text);
 	}
 
 	/* Hide scrollbar for Chrome, Safari and Opera */
@@ -49,12 +53,16 @@ const { title } = Astro.props;
 	}
 	
 	.dark {
-		color: var(--light);
-		background-color: var(--dark);
+	  --bg: #000;
+		--bg-alt: #fff;
+	  --text: #fff;
+		--text-alt: #000;
 	}
 	
 	.light {
-		color: var(--dark);
-		background-color: var(--light);
+	  --bg: #fff;
+		--bg-alt: #000;
+	  --text: #000;
+		--text-alt: #fff;
 	}
 </style>
