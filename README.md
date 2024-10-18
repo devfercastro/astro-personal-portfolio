@@ -1,54 +1,81 @@
-# Astro Starter Kit: Basics
+# Astro Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is a personal portfolio website built using [Astro](https://astro.build), styled with [Tailwind CSS](https://tailwindcss.com), and powered by [Bun](https://bun.sh) for fast and efficient JavaScript runtime deployed on [Vercel](https://vercel.com).
+Check out the [demo](https://astro-portfolio.vercel.app/) to see the project in action.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Table of Contents
+1. [Requirements](#requirements)
+2. [Dependencies](#dependencies)
+3. [Project Structure](#project-structure)
+4. [Commands](#commands)
+5. [Deployment](#deployment)
+6. [Contributing](#contributing)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Requirements
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Before running this project, make sure you have the following installed on your system:
 
-## 🚀 Project Structure
+- **Bun** (v1.0.0 or higher) - A fast JavaScript runtime, required for running commands but you can also use **Node.js**.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Dependencies
 
-```text
-/
-├── public/
-│   └── favicon.svg
+The project relies on the following core technologies:
+
+- **Astro**: v5.0.0-beta.3 - Frontend framework for building fast, optimized websites.
+- **React**: Used in some components via @astrojs/react.
+- **Tailwind CSS**: Utility-first CSS framework via @astrojs/tailwind.
+- **Vercel**: Deployment integration via @astrojs/vercel.
+- **TypeScript**: Type checking for better developer experience.
+- **Biome**: Optional linter/formatter with support for TypeScript and modern JS.
+
+## Project Structure
+
+```bash
+├── astro.config.mjs       # Astro configuration file
+├── biome.json             # Biome (optional linter/formatter) configuration
+├── bun.lockb              # Bun lockfile
+├── package.json           # Project dependencies and scripts
+├── public/                # Static assets
+│   └── projects/          # Project-related assets (e.g., images)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/        # Reusable UI components
+│   │   ├── ui/            # UI-related components
+│   │   │   ├── icons/     # Icon components
+│   ├── content.ts         # Centralized content management
+│   ├── env.d.ts           # TypeScript environment definitions
+│   ├── layouts/           # Layout components
+│   ├── pages/             # Application pages
+│   ├── types/             # Global TypeScript custom types
+│   └── utils/             # Utility functions
+├── tailwind.config.mjs     # Tailwind CSS configuration
+└── tsconfig.json          # TypeScript configuration
+
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                    | Action                                           |
+| :------------------------- | :----------------------------------------------- |
+| `bun install`              | Installs dependencies                            |
+| `bun run dev`              | Starts local dev server at `localhost:4321`       |
+| `bun run build`            | Build your production site to `./vercel/output/` |
+| `bun run preview`          | Preview your build locally, before deploying     |
+| `bun run astro ...`        | Run CLI commands like `astro add`, `astro check` |
+| `bun run astro -- --help`  | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The project is configured to deploy on [Vercel](https://vercel.com). The build output is set to `./vercel/output/`, and you can customize the deployment settings in the Vercel dashboard.
+
+### Build Settings
+
+```bash
+Output Directory: ./vercel/output/
+Build Command: bun run build
+```
+
+## Contributing
+
+Feel free to open issues or submit pull requests for improvements or new features. Contributions are welcome!
