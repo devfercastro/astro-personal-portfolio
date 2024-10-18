@@ -1,0 +1,78 @@
+---
+import SunIcon from "@ui/icons/SunIcon.astro";
+import MoonIcon from "@ui/icons/MoonIcon.astro";
+---
+<button
+  id="themeToggler"
+  class="theme-toggler fixed bottom-5 right-5 rounded-full p-3 border"
+  aria-label="Toggle theme"
+>
+  <SunIcon id="sunIcon" class="w-8 h-8" />
+  <MoonIcon id="moonIcon" class="w-8 h-8 hidden" />
+</button>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function() {
+    const themeToggler = document.querySelector("#themeToggler");
+    const sunIcon = document.querySelector("#sunIcon");
+    const moonIcon = document.querySelector("#moonIcon");
+
+    function switchIcon(theme) {
+      if(theme === "dark") {
+        sunIcon?.classList.remove("hidden");
+        moonIcon?.classList.add("hidden");
+
+        // Set button styles for light mode (black icons, white background)
+        themeToggler.classList.remove("bg-black", "text-white", "border-white");
+        themeToggler.classList.add("bg-white", "text-black", "border-black");
+      } else {
+        sunIcon?.classList.add("hidden");
+        moonIcon?.classList.remove("hidden");
+
+        // Set button styles for dark mode (white icons, black background)
+        themeToggler.classList.remove("bg-white", "text-black", "border-black");
+        themeToggler.classList.add("bg-black", "text-white", "border-white");
+      }
+    }
+
+    // Initialize theme from localStorage or system preference
+    const theme = (() => {
+      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        return localStorage.getItem("theme");
+      }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "light";
+    })();
+
+    // Apply the theme class to the <html> element
+    if (theme === "light") {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    }
+
+    // Set the correct icon based on the initial theme
+    switchIcon(theme);
+
+    // Save the theme in localStorage
+    window.localStorage.setItem("theme", theme);
+
+    // Toggle the theme when the button is clicked
+    const handleToggleClick = () => {
+      const el = document.documentElement;
+      const isDark = el.classList.toggle("dark");
+      el.classList.toggle("light", !isDark); // Add "light" class if dark mode is off
+      switchIcon(isDark ? "dark" : "light");
+
+      // Save the updated theme in localStorage
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+
+    // Add event listener to the button
+    themeToggler.addEventListener("click", handleToggleClick);
+  });
+</script>

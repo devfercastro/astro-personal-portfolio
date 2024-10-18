@@ -6,6 +6,7 @@ import About from "@components/About.astro";
 import Experience from "@components/Experience.astro";
 import Projects from "@components/Projects.astro";
 import SocialBar from "@components/ui/SocialBar.astro";
+import ThemeToggler from "@components/ui/ThemeToggler.astro";
 
 import { descriptionContent } from "@src/content";
 
@@ -48,5 +49,6 @@ export const prerender = true;
 				</footer>
 			</div>
 		</div>
+		<ThemeToggler />
 	</main>
 </Layout>
