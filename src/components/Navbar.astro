@@ -14,9 +14,9 @@ export const prerender = true;
   <ul class="w-full flex flex-col justify-start items-start gap-y-5">
     {sections.map(({url, id}) => (
       <li class="w-full">
-        <a 
+        <a
           href={url}
-          class="flex w-full px-5 py-3 rounded-md font-medium text-lg text-left hover:bg-[var(--bg-alt)] hover:text-[var(--text-alt)] transition-all duration-300"
+          class="flex w-full px-5 py-3 rounded-md font-medium text-lg text-left hover:bg-[var(--nav-btn-highlight)] hover:shadow-lg hover:text-[var(--text)] transition-all duration-300"
           aria-label={id}
         >
           {capFirstLetter(id)}

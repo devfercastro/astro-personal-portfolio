@@ -25,10 +25,11 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-    --bg: #fff;
+    --bg: #f0f0f0;
+    --nav-btn-highlight: #fff;
     --bg-alt: #000;
     --text: #000;
-    --text-alt: #fff;
+    --text-alt: #f0f0f0;
 	}
 
 	html {
@@ -51,18 +52,22 @@ const { title } = Astro.props;
 		/* Firefox */
 		scrollbar-width: none;
 	}
-	
+
 	.dark {
 	  --bg: #000;
-		--bg-alt: #fff;
-	  --text: #fff;
+		--nav-btn-highlight: #0d0d0d;
+		--card-highlight: #0d0d0d;
+		--bg-alt: #f0f0f0;
+	  --text: #f0f0f0;
 		--text-alt: #000;
 	}
-	
+
 	.light {
-	  --bg: #fff;
+	  --bg: #f0f0f0;
+		--nav-btn-highlight: #fff;
+		--card-highlight: #fff;
 		--bg-alt: #000;
 	  --text: #000;
-		--text-alt: #fff;
+		--text-alt: #f0f0f0;
 	}
 </style>
