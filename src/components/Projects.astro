@@ -15,11 +15,14 @@ export const prerender = true;
 	<h2 class="text-xl font-medium mb-5 lg:hidden">Projects</h2>
   <ul class="flex flex-col gap-y-10">
 		{projectsContent.map((project) => (
-			<Card 
+			<Card
 				title={project.title}
 				body={project.description}
 				img={project.image}
-				url={project.link} />
+				url={project.link}
+				type="project"
+				badges={project.badges}
+				/>
 		))}
 	</ul>
 </section>

@@ -1,5 +1,13 @@
 ---
 import ArrowTopRightOnSquareIcon from "@ui/icons/ArrowTopRightOnSquareIcon.astro";
+import GithubIcon from "@ui/icons/GithubIcon.astro";
+
+import Badge from "./Badge.astro";
+
+type BadgeItem = {
+  text: string;
+  icon: string;
+}
 
 interface Props {
 	title: string;
@@ -7,30 +15,68 @@ interface Props {
 	body: string;
 	img?: string;
 	url: string;
+	badges?: BadgeItem[];
+	time?: number;
+	type: "experience" | "project";
 }
 
-const { title, subtitle, body, img, url } = Astro.props;
+const { title, subtitle, body, img, url, badges, time, type } = Astro.props;
 ---
 <li>
   <a
     href={url}
-    class="flex flex-col lg:flex-row lg:items-center lg:justify-between cursor-pointer rounded-md p-5 lg:p-8 shadow-lg lg:shadow-none lg:bg-transparent bg-[var(--card-highlight)] hover:shadow-lg hover:bg-[var(--card-highlight)] transition-all duration-100 lg:duration-300 group"
+    class="h-min flex flex-col cursor-pointer rounded-lg shadow-lg lg:shadow-none lg:bg-transparent bg-[var(--card-highlight)] hover:shadow-lg hover:bg-[var(--card-highlight)] transition-all duration-100 lg:duration-300 group"
     target="_blank"
   >
-    {img && <img src={img} alt={title} class="w-full lg:w-1/2 h-full mb-4 lg:mb-0 object-cover rounded-md border border-white" />}
-    <div class={`flex flex-col w-full text-base ${img ? 'lg:w-[45%]' : 'lg:w-full'}`}>
-      <header class="flex flex-row w-full justify-between mb-2">
-        <div class="flex flex-col">
-          <h2 class="font-semibold">{title}</h2>
-          {subtitle && <h3 class="font-medium">{subtitle}</h3>}
-        </div>
-        <ArrowTopRightOnSquareIcon
-          height={25}
-          width={25}
-          class="lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        />
+    {img && <img src={img} alt={title} class="w-full min-h-[280px] object-cover rounded-t-lg border border-[var(--text-primary)]" />}
+    <div class="flex flex-col w-full p-8">
+      <header class="w-full flex flex-col mb-2">
+        {type === "project" && (
+          <div class="w-full flex flex-row justify-between">
+            <h2 class="font-semibold text-xl">{title}</h2>
+            <div class="flex flex-row gap-2">
+              <GithubIcon
+                height={25}
+                width={25}
+              />
+              <ArrowTopRightOnSquareIcon
+                height={25}
+                width={25}
+              />
+            </div>
+          </div>
+        )}
+        {type === "experience" && (
+          <div class="flex flex-row gap-2 items-center">
+            <h2 class="font-semibold text-xl hover:decoration-solid">{title}</h2>
+            <ArrowTopRightOnSquareIcon
+              height={18}
+              width={18}
+              class="lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+          )}
+        {subtitle && (
+          <div class="w-full flex flex-row items-center justify-between">
+            <h3 class="font-medium">{subtitle}</h3>
+            <Badge text={`${time} years`} />
+          </div>
+        )}
       </header>
-      <p class="mb-2">{body}</p>
+      <div class="flex flex-col">
+        <p class="mb-2 text-base text-[var(--text-secundary)]">{body}</p>
+
+        <div class="flex flex-row w-full gap-2 items-center">
+          <p class="text-sm font-medium">Tech Stack:</p>
+          <div class="flex gap-x-3 gap-y-2">
+            {badges?.map((badge) => (
+              <Badge
+                text={badge.text}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   </a>
 </li>

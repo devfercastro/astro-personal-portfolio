@@ -15,11 +15,15 @@ export const prerender = true;
 	<h1 class="text-xl font-medium mb-5 lg:hidden">Experience</h1>
 	<ul class="w-full flex flex-col gap-y-5">
 		{experienceContent.map((experience) => (
-			<Card 
+			<Card
 				title={experience.job}
-				subtitle={`${experience.company} (${experience.from} - ${experience.to})`}
+				subtitle={experience.company}
+				time={experience.time}
 				body={experience.description}
-				url={experience.url} />
+				url={experience.url}
+				type="experience"
+				badges={experience.badges}
+				/>
 		))}
 	</ul>
 </section>
