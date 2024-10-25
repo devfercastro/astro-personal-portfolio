@@ -41,10 +41,10 @@ export const prerender = true;
             // If the nav item belongs to the current section
             if(item.getAttribute("aria-label") === entry.target.id) {
               // Add the highlight
-              item.classList.add("bg-[var(--bg-alt)]", "text-[var(--text-alt)]");
+              item.classList.add("bg-[var(--text-primary)]", "text-[var(--text-alt)]");
             } else {
               // Remove the highlight
-              item.classList.remove("bg-[var(--bg-alt)]", "text-[var(--text-alt)]");
+              item.classList.remove("bg-[var(--text-primary)]", "text-[var(--text-alt)]");
             }
           })
         }
