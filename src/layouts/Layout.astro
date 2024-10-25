@@ -26,9 +26,21 @@ const { title } = Astro.props;
 <style is:global>
 	:root {
     --bg: #f0f0f0;
+
+    /* Badge */
+    --badge-bg: #E0E0E0;
+    --badge-text: #000;
+
+    /* Nav */
     --nav-btn-highlight: #fff;
-    --bg-alt: #000;
-    --text: #000;
+
+    /* Card */
+    --card-bg-default: transparent;
+    --card-bg-hover: #fff;
+
+    /* Text */
+    --text-primary: #000;
+    --text-secundary: #707070;
     --text-alt: #f0f0f0;
 	}
 
@@ -55,19 +67,23 @@ const { title } = Astro.props;
 
 	.dark {
 	  --bg: #000;
+
 		--nav-btn-highlight: #0d0d0d;
-		--card-highlight: #0d0d0d;
-		--bg-alt: #f0f0f0;
-	  --text: #f0f0f0;
+
+		--card-bg-hover: #0B0B0B;
+
+		--text-primary: #fff;
 		--text-alt: #000;
 	}
 
 	.light {
 	  --bg: #f0f0f0;
-		--nav-btn-highlight: #fff;
-		--card-highlight: #fff;
-		--bg-alt: #000;
-	  --text: #000;
-		--text-alt: #f0f0f0;
+
+		--nav-btn-highlight: #000;
+
+		--card-bg-hover: #fff;
+
+		--text-primary: #000;
+		--text-alt: #fff;
 	}
 </style>
