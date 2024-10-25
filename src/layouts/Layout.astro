@@ -27,6 +27,9 @@ const { title } = Astro.props;
 	:root {
     --bg: #f0f0f0;
 
+    /* Social icon */
+    --social-icon: #6B6B6B;
+
     /* Badge */
     --badge-bg: #E0E0E0;
     --badge-text: #000;
@@ -49,7 +52,7 @@ const { title } = Astro.props;
 		scroll-margin-top: 100px;
 		scroll-behavior: smooth;
 		background: var(--bg);
-		color: var(--text);
+		color: var(--text-primary);
 	}
 
 	/* Hide scrollbar for Chrome, Safari and Opera */
@@ -79,7 +82,7 @@ const { title } = Astro.props;
 	.light {
 	  --bg: #f0f0f0;
 
-		--nav-btn-highlight: #000;
+		--nav-btn-highlight: #fff;
 
 		--card-bg-hover: #fff;
 
