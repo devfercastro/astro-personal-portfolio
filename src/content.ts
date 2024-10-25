@@ -18,15 +18,15 @@ export const experienceContent: ExperiencesItem[] = [
     badges: [
       {
         text: "javascript",
-        icon: "javascript.svg",
+        icon: "/tech-icons/js-icon.svg",
       },
       {
         text: "html",
-        icon: "html.svg",
+        icon: "/tech-icons/html-icon.svg",
       },
       {
         text: "css",
-        icon: "css.svg",
+        icon: "/tech-icons/css-icon.svg",
       },
     ],
   },
@@ -44,11 +44,11 @@ export const projectsContent: ProjectsItem[] = [
     badges: [
       {
         text: "astro",
-        icon: "astro.svg",
+        icon: "/tech-icons/astro-icon.svg",
       },
       {
         text: "tailwind",
-        icon: "tailwind.svg",
+        icon: "/tech-icons/tailwind-icon.svg",
       },
     ],
   },

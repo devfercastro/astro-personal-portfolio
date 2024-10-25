@@ -72,6 +72,7 @@ const { title, subtitle, body, img, url, urls, badges, time, type } = Astro.prop
           {badges?.map((badge) => (
             <Badge
               text={badge.text}
+              icon={badge.icon}
             />
           ))}
         </div>
