@@ -1,25 +1,13 @@
----
-interface Props {
-  title?: string;
-  height?: number;
-  width?: number;
-  class?: string;
-}
 
-const { title, height, width, class: className } = Astro.props;
----
 <svg
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 24 24"
   stroke-width="1.5"
   stroke="currentColor"
-
-  class={className}
-  height={height}
-  width={width}
+  {...Astro.props}
 >
-  <title>{title || "ArrowTopRightOnSquareIcon"}</title>
+  <title>{Astro.props.title || "ArrowTopRightOnSquareIcon"}</title>
   <path
     stroke-linecap="round"
     stroke-linejoin="round"
