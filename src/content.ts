@@ -17,16 +17,16 @@ export const experienceContent: ExperiencesItem[] = [
     url: "https://www.matecito.co/battlerol.net",
     badges: [
       {
+        text: "javascript",
+        icon: "javascript.svg",
+      },
+      {
         text: "html",
         icon: "html.svg",
       },
       {
         text: "css",
         icon: "css.svg",
-      },
-      {
-        text: "javascript",
-        icon: "javascript.svg",
       },
     ],
   },
@@ -37,7 +37,8 @@ export const projectsContent: ProjectsItem[] = [
     title: "Portfolio",
     description: "Personal portfolio built with Astro and Tailwind CSS",
     image: "/projects/portfolio.png",
-    link: "https://github.com/devfercastro/astro-personal-portfolio",
+    urlCode: "https://github.com/devfercastro/astro-personal-portfolio",
+    urlPreview: "https://astro-personal-portfolio.vercel.app/",
     badges: [
       {
         text: "astro",
