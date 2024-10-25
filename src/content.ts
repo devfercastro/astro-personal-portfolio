@@ -37,8 +37,10 @@ export const projectsContent: ProjectsItem[] = [
     title: "Portfolio",
     description: "Personal portfolio built with Astro and Tailwind CSS",
     image: "/projects/portfolio.png",
-    urlCode: "https://github.com/devfercastro/astro-personal-portfolio",
-    urlPreview: "https://astro-personal-portfolio.vercel.app/",
+    urls: {
+      preview: "https://astro-personal-portfolio.vercel.app/",
+      code: "https://github.com/devfercastro/astro-personal-portfolio",
+    },
     badges: [
       {
         text: "astro",

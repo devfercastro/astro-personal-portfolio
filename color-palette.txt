@@ -1,0 +1,47 @@
+light theme:
+- bg: #F0F0F0
+- text
+  primary: #000
+  secundary: #707070
+  alt: #fff
+- card
+  bg:
+    default: transparent
+    hover: #fff
+
+
+dark theme:
+- bg: #000
+- text
+  primary: #fff
+  secondary: #707070
+  alt: #000
+- card:
+  bg:
+    default: transparent
+    hover: #0B0B0B
+
+global:
+- badge
+  bg: #E0E0E0
+  text: #000
+
+- social icons:
+  default: #6B6B6B
+  hover: --text-primary
+
+
+card text styles:
+- experience:
+  title:
+    text: xl bold
+    icon: 20px
+    mb-2
+  subtitle: lg semi mb-5
+  content: base regular mb-2
+  footer: xs medium
+
+- project:
+  title:
+    text: xl bold
+    icon: 24px

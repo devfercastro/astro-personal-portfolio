@@ -1,12 +1,24 @@
+---
+interface Props {
+  title?: string;
+  height?: number;
+  width?: number;
+  class?: string;
+}
+
+const { title, height, width, class: className } = Astro.props;
+---
 <svg
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 24 24"
   stroke-width="1.5"
   stroke="currentColor"
-  {...Astro.props}
+  class={className}
+  height={height}
+  width={width}
 >
-  <title>ChevronDownIcon</title>
+  <title>{title || "Chevron Down Icon"}</title>
   <path
     stroke-linecap="round"
     stroke-linejoin="round"

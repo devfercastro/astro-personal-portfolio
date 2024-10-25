@@ -11,8 +11,10 @@ interface ProjectsItem {
   title: string;
   description: string;
   image: string;
-  urlPreview?: string;
-  urlCode: string;
+  urls: {
+    preview: string;
+    code: string;
+  };
   badges: Badge[];
 }
 
