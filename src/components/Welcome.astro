@@ -1,12 +1,13 @@
 ---
 import ChevronDownIcon from "@ui/icons/ChevronDownIcon.astro";
-import { welcomeContent } from "@src/content";
+import i18n from "@src/utils/i18n";
 
 interface Props {
 	tailwindClass: string;
+	lang: string | undefined;
 }
 
-const { tailwindClass } = Astro.props;
+const { tailwindClass, lang } = Astro.props;
 
 export const prerender = true;
 ---
@@ -17,15 +18,38 @@ export const prerender = true;
       animationDelay: "1000ms",
       opacity: 0,
     }}
-    >{welcomeContent}</h1>
-	<a
-    href="#mainContent"
-    class="absolute bottom-10"
+    >{i18n(lang as "es" | "en", "welcome")}</h1>
+	<button
+	  id="welcomeArrow"
+    class="absolute bottom-10 hidden"
     >
     <ChevronDownIcon
-		class="chevron-icon w-14 h-14 cursor-pointer opacity-0 animate-bounce-delayed"
-    style={{
-			animationDelay: "2000ms",
-		}}/>
-  </a>
+      id="arrowIcon"
+      class="chevron-icon w-14 h-14 cursor-pointer opacity-0 animate-bounce-delayed"
+      style={{
+        animationDelay: "2000ms",
+      }}/>
+  </button>
 </section>
+
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const welcomeArrow = document.getElementById("welcomeArrow");
+    const arrowIcon = welcomeArrow?.querySelector("#arrowIcon");
+    const mainContent = document.getElementById("mainContent");
+
+    if(welcomeArrow && mainContent && arrowIcon) {
+      // Displays the button and plays the animation
+      welcomeArrow.classList.remove("hidden");
+
+      // Redirects to the main content
+      welcomeArrow.addEventListener("click", () => {
+        mainContent.scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
+</script>
