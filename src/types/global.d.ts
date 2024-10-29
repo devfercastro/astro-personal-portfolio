@@ -22,3 +22,18 @@ type Badge = {
   text: string;
   icon: string;
 };
+
+interface Translation {
+  welcome: string;
+  description: string;
+  about: string[];
+  experience: ExperiencesItem[];
+  projects: ProjectsItem[];
+  sections: Section[];
+}
+
+type Section = {
+  id: string;
+  label: string;
+  url: string;
+};
