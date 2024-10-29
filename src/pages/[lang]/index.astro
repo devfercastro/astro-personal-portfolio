@@ -8,7 +8,7 @@ import Projects from "@components/Projects.astro";
 import SocialBar from "@components/ui/SocialBar.astro";
 import ThemeToggler from "@components/ui/ThemeToggler.astro";
 
-import i18n from "../../utils/i18n";
+import i18n from "@utils/i18n";
 
 const { lang } = Astro.params;
 const t = (key: keyof Translation) => i18n(lang === "en" ? "en" : "es", key);
@@ -23,13 +23,13 @@ export const prerender = false;
 			<div class="flex flex-col h-min mb-20 lg:h-full lg:w-1/2 lg:mr-20 lg:mb-0 lg:py-10">
 				<h1 class="lg:hidden text-4xl font-bold mb-2">Fernando Castro</h1>
 				<h3 class="text-lg lg:text-xl font-semibold">{t("description")}</h3>
-				<Navbar lang={lang} sections={t("sections") as Section[]} tailwindClass="hidden w-full lg:mt-12  lg:block"/>
+				<Navbar sections={t("sections") as Section[]} tailwindClass="hidden w-full lg:mt-12  lg:block"/>
 				<SocialBar tailwindClass="flex flex-row justify-start mt-8 gap-x-[2rem] lg:mt-auto"/>
 			</div>
 			<div id="sectionsContainer" class="h-full w-full lg:overflow-auto flex flex-col gap-y-32 scrollbar-hide scroll-smooth lg:pt-10">
-				<About id="about" tailwindClass="content-section w-full text-lg"/>
-				<Experience id="experience" tailwindClass="content-section" />
-				<Projects id="projects" tailwindClass="content-section" />
+				<About lang={lang} id="about" tailwindClass="content-section w-full text-lg"/>
+				<Experience lang={lang} id="experience" tailwindClass="content-section" />
+				<Projects lang={lang} id="projects" tailwindClass="content-section" />
 				<footer class="p-10 pt-0 text-sm text-center">
 					Coded using <a href="https://astro.build" class="font-semibold">Astro</a> and <a href="https://tailwindcss.com/" class="font-semibold">Tailwind CSS</a>
 				</footer>

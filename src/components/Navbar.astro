@@ -2,10 +2,9 @@
 interface Props {
   sections: Section[];
 	tailwindClass: string;
-	lang: string | undefined;
 }
 
-const { sections, tailwindClass, lang } = Astro.props;
+const { sections, tailwindClass} = Astro.props;
 
 export const prerender = true;
 ---

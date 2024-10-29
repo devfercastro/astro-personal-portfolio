@@ -1,13 +1,17 @@
 ---
 import Card from "@src/components/ui/Card.astro";
-import { projectsContent } from "@src/content";
+import i18n from "@utils/i18n";
 
 interface Props {
 	id: string;
 	tailwindClass: string;
+	lang: string | undefined;
 }
 
-const { id, tailwindClass } = Astro.props;
+const { id, tailwindClass, lang } = Astro.props;
+
+
+const projectsContent = i18n(lang as "es" | "en", "projects") as ProjectsItem[];
 
 export const prerender = true;
 ---
