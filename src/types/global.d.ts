@@ -35,5 +35,4 @@ interface Translation {
 type Section = {
   id: string;
   label: string;
-  url: string;
 };

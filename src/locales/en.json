@@ -38,18 +38,15 @@
   "sections": [
     {
       "id": "about",
-      "label": "About",
-      "url": "/#about"
+      "label": "About"
     },
     {
       "id": "experience",
-      "label": "Experience",
-      "url": "/#experience"
+      "label": "Experience"
     },
     {
       "id": "projects",
-      "label": "Projects",
-      "url": "/#projects"
+      "label": "Projects"
     }
   ]
 }
