@@ -11,14 +11,18 @@ import ThemeToggler from "@components/ui/ThemeToggler.astro";
 import i18n from "@utils/i18n";
 
 const { lang } = Astro.params;
-const t = (key: keyof Translation) => i18n(lang === "en" ? "en" : "es", key);
+
+// Default language
+const defLang = lang === "en" ? "en" : "es";
+
+const t = (key: keyof Translation) => i18n(defLang, key);
 
 export const prerender = false;
 ---
 
 <Layout title="Fernando Castro">
 	<main class="w-screen flex flex-col items-center justify-center">
-		<Welcome lang={lang} tailwindClass="hidden lg:block lg:h-screen lg:w-full lg:flex lg:flex-col lg:items-center lg:justify-center"/>
+		<Welcome lang={defLang} tailwindClass="hidden lg:block lg:h-screen lg:w-full lg:flex lg:flex-col lg:items-center lg:justify-center"/>
 		<div id="mainContent" class="w-full px-7 pt-10 lg:h-screen lg:flex lg:flex-row lg:pt-0 lg:px-28 xl:px-44">
 			<div class="flex flex-col h-min mb-20 lg:h-full lg:w-1/2 lg:mr-20 lg:mb-0 lg:py-10">
 				<h1 class="lg:hidden text-4xl font-bold mb-2">Fernando Castro</h1>
@@ -27,9 +31,9 @@ export const prerender = false;
 				<SocialBar tailwindClass="flex flex-row justify-start mt-8 gap-x-[2rem] lg:mt-auto"/>
 			</div>
 			<div id="sectionsContainer" class="h-full w-full lg:overflow-auto flex flex-col gap-y-32 scrollbar-hide scroll-smooth lg:pt-10">
-				<About lang={lang} id="about" tailwindClass="content-section w-full text-lg"/>
-				<Experience lang={lang} id="experience" tailwindClass="content-section" />
-				<Projects lang={lang} id="projects" tailwindClass="content-section" />
+				<About lang={defLang} id="about" tailwindClass="content-section w-full text-lg"/>
+				<Experience lang={defLang} id="experience" tailwindClass="content-section" />
+				<Projects lang={defLang} id="projects" tailwindClass="content-section" />
 				<footer class="p-10 pt-0 text-sm text-center">
 					Coded using <a href="https://astro.build" class="font-semibold">Astro</a> and <a href="https://tailwindcss.com/" class="font-semibold">Tailwind CSS</a>
 				</footer>
