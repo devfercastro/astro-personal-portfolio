@@ -6,9 +6,9 @@ import About from "@components/About.astro";
 import Experience from "@components/Experience.astro";
 import Projects from "@components/Projects.astro";
 import SocialBar from "@components/ui/SocialBar.astro";
-import ThemeToggler from "@components/ui/ThemeToggler.astro";
 
 import i18n from "@utils/i18n";
+import Settings from "@src/components/ui/Settings.astro";
 
 const { lang } = Astro.params;
 
@@ -39,6 +39,6 @@ export const prerender = false;
 				</footer>
 			</div>
 		</div>
-		<ThemeToggler />
+		<Settings />
 	</main>
 </Layout>

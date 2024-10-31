@@ -1,0 +1,108 @@
+---
+import SettingsIcon from "@ui/icons/SettingsIcon.astro";
+import LanguageIcon from "@ui/icons/LanguageIcon.astro";
+import PaintBrush from "@ui/icons/PaintBrushIcon.astro";
+import MoonIcon from "@ui/icons/MoonIcon.astro";
+import SunIcon from "@ui/icons/SunIcon.astro";
+import ArgentinaFlag from "./icons/ArgentinaFlag.astro";
+import USAFlag from "./icons/USAFlag.astro";
+---
+
+<div id="settings-container" class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--card-bg-hover)] rounded-full shadow-lg transition-all duration-300">
+  <div id="settings-menu" class="hidden mb-10 space-y-4"> <!-- Changed gap to space-y-4 -->
+    <ul class="flex flex-col gap-y-4"> <!-- Changed gap to match design -->
+      <li class="cursor-pointer">
+        <div class="flex flex-row relative group">
+          <PaintBrush class="w-6 h-6 z-[10]" />
+          <!-- Theme submenu -->
+          <div class="absolute right-1/2 top-[-16px] hidden group-hover:flex gap-4 items-center bg-[var(--card-bg-hover)] rounded-l-full p-4 pr-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <button class="hover:scale-110 transition-transform duration-200">
+              <MoonIcon class="w-6 h-6" />
+            </button>
+            <button class="hover:scale-110 transition-transform duration-200">
+              <SunIcon class="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      </li>
+      <li class="cursor-pointer">
+        <div class="flex flex-row relative group">
+          <LanguageIcon class="w-6 h-6 z-[10]" />
+          <!-- Language submenu -->
+          <div class="absolute right-1/2 top-[-16px] hidden group-hover:flex gap-4 items-center bg-[var(--card-bg-hover)] rounded-full p-4 pr-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <button class="hover:scale-110 transition-transform duration-200">
+              <USAFlag class="w-6 h-6" />
+            </button>
+            <button class="hover:scale-110 transition-transform duration-200">
+              <ArgentinaFlag class="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <button id="settings-button">
+    <SettingsIcon class="w-6 h-6" />
+  </button>
+</div>
+
+<script>
+  const container = document.getElementById("settings-container");
+  const settingsButton = document.getElementById('settings-button');
+  const settingsMenu = document.getElementById('settings-menu');
+
+  settingsButton?.addEventListener('click', () => {
+    settingsMenu?.classList.toggle('hidden');
+    // Add small delay to allow the hidden class to be removed before starting animation
+    setTimeout(() => {
+      settingsMenu?.classList.toggle('opacity-0');
+      settingsMenu?.classList.toggle('opacity-100');
+    }, 0);
+
+    // if(container && container.classList.contains("rounded-full")) {
+    //   container.classList.remove("rounded-full");
+    //   container.classList.add("rounded-xl");
+    // } else {
+    //   container?.classList.remove("rounded-xl");
+    //   container?.classList.add("rounded-full");
+    // }
+  });
+</script>
+
+<style>
+  #settings-menu {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  #settings-menu:not(.hidden) {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth hover transitions */
+  .group:hover .group-hover\:flex {
+    display: flex;
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
