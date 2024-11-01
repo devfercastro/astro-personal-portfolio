@@ -12,7 +12,6 @@ const { id, tailwindClass, lang } = Astro.props;
 
 const experienceContent = i18n(lang, "experience") as ExperiencesItem[];
 
-
 export const prerender = true;
 ---
 <section id={id} class={tailwindClass}>

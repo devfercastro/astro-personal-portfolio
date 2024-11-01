@@ -1,25 +1,15 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": [
-        "src/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@public/*": [
-        "public/*"
-      ],
-      "@ui/*": [
-        "src/components/ui/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ]
-    }
-  }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"baseUrl": ".",
+		"paths": {
+			"@src/*": ["src/*"],
+			"@components/*": ["src/components/*"],
+			"@public/*": ["public/*"],
+			"@ui/*": ["src/components/ui/*"],
+			"@utils/*": ["src/utils/*"]
+		}
+	}
 }

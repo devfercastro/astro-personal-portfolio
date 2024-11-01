@@ -5,9 +5,9 @@ import GithubIcon from "@ui/icons/GithubIcon.astro";
 import Badge from "./Badge.astro";
 
 type BadgeItem = {
-  text: string;
-  icon: string;
-}
+	text: string;
+	icon: string;
+};
 
 interface Props {
 	title: string;
@@ -15,13 +15,14 @@ interface Props {
 	body: string;
 	img?: string;
 	url?: string;
-	urls?: {[key: string]: string};
+	urls?: { [key: string]: string };
 	badges?: BadgeItem[];
 	time?: number;
 	type: "experience" | "project";
 }
 
-const { title, subtitle, body, img, url, urls, badges, time, type } = Astro.props;
+const { title, subtitle, body, img, url, urls, badges, time, type } =
+	Astro.props;
 ---
 <li
   class="h-min flex flex-col rounded-lg shadow-lg lg:shadow-none bg-[var(--card-bg-hover)] lg:bg-[var(--card-bg-default)] hover:shadow-lg hover:bg-[var(--card-bg-hover)] transition-all duration-100 lg:duration-300 group"

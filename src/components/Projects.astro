@@ -10,7 +10,6 @@ interface Props {
 
 const { id, tailwindClass, lang } = Astro.props;
 
-
 const projectsContent = i18n(lang, "projects") as ProjectsItem[];
 
 export const prerender = true;

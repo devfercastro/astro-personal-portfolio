@@ -1,52 +1,52 @@
 {
-  "welcome": "Hola, soy Fernando Castro.",
-  "description": "Soy desarrollador de software.",
-  "about": [
-    "Empecé a programar en 2019, creando pequeños sitios web con HTML, CSS y JavaScript como pasatiempo. Al poco tiempo, exploré el desarrollo backend con Node.js y después frontend con React. Todo empezó a encajar cuando miré tutoriales en YouTube que mostraban la complejidad de proyectos reales.",
-    "Más tarde, me uní a FreeCodeCamp, donde profundicé mis conocimientos en algoritmos, estructuras de datos y programación, además de mejorar mi inglés. Mientras cursaba la universidad, conseguí mi primer trabajo como desarrollador en Battlerol, trabajando en un juego RPG web llamado Meeple Combat, hecho con HTML, CSS y JavaScript.",
-    "Resolver problemas de programación desafiantes despertó mi interés en algoritmos, llevándome a LeetCode y a un enfoque más profundo en estructuras de datos. Ahora, estoy construyendo mis propios proyectos con Next.js y Astro, además de contribuir a la comunidad de código abierto."
-  ],
-  "experience": [
-    {
-      "job": "Desarrollador Frontend",
-      "company": "Battlerol",
-      "time": 1,
-      "description": "Desarrollé juegos de rol usando HTML, CSS y JavaScript",
-      "url": "https://www.matecito.co/battlerol.net",
-      "badges": [
-        { "text": "javascript", "icon": "/tech-icons/js-icon.svg" },
-        { "text": "html", "icon": "/tech-icons/html-icon.svg" },
-        { "text": "css", "icon": "/tech-icons/css-icon.svg" }
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "title": "Portafolio",
-      "description": "Portafolio personal creado con Astro y Tailwind CSS",
-      "image": "/projects/portfolio.png",
-      "urls": {
-        "preview": "https://astro-personal-portfolio.vercel.app/",
-        "code": "https://github.com/devfercastro/astro-personal-portfolio"
-      },
-      "badges": [
-        { "text": "astro", "icon": "/tech-icons/astro-icon.svg" },
-        { "text": "tailwind", "icon": "/tech-icons/tailwind-icon.svg" }
-      ]
-    }
-  ],
-  "sections": [
-    {
-      "id": "about",
-      "label": "Info"
-    },
-    {
-      "id": "experience",
-      "label": "Experiencia"
-    },
-    {
-      "id": "projects",
-      "label": "Proyectos"
-    }
-  ]
+	"welcome": "Hola, soy Fernando Castro.",
+	"description": "Soy desarrollador de software.",
+	"about": [
+		"Empecé a programar en 2019, creando pequeños sitios web con HTML, CSS y JavaScript como pasatiempo. Al poco tiempo, exploré el desarrollo backend con Node.js y después frontend con React. Todo empezó a encajar cuando miré tutoriales en YouTube que mostraban la complejidad de proyectos reales.",
+		"Más tarde, me uní a FreeCodeCamp, donde profundicé mis conocimientos en algoritmos, estructuras de datos y programación, además de mejorar mi inglés. Mientras cursaba la universidad, conseguí mi primer trabajo como desarrollador en Battlerol, trabajando en un juego RPG web llamado Meeple Combat, hecho con HTML, CSS y JavaScript.",
+		"Resolver problemas de programación desafiantes despertó mi interés en algoritmos, llevándome a LeetCode y a un enfoque más profundo en estructuras de datos. Ahora, estoy construyendo mis propios proyectos con Next.js y Astro, además de contribuir a la comunidad de código abierto."
+	],
+	"experience": [
+		{
+			"job": "Desarrollador Frontend",
+			"company": "Battlerol",
+			"time": 1,
+			"description": "Desarrollé juegos de rol usando HTML, CSS y JavaScript",
+			"url": "https://www.matecito.co/battlerol.net",
+			"badges": [
+				{ "text": "javascript", "icon": "/tech-icons/js-icon.svg" },
+				{ "text": "html", "icon": "/tech-icons/html-icon.svg" },
+				{ "text": "css", "icon": "/tech-icons/css-icon.svg" }
+			]
+		}
+	],
+	"projects": [
+		{
+			"title": "Portafolio",
+			"description": "Portafolio personal creado con Astro y Tailwind CSS",
+			"image": "/projects/portfolio.png",
+			"urls": {
+				"preview": "https://astro-personal-portfolio.vercel.app/",
+				"code": "https://github.com/devfercastro/astro-personal-portfolio"
+			},
+			"badges": [
+				{ "text": "astro", "icon": "/tech-icons/astro-icon.svg" },
+				{ "text": "tailwind", "icon": "/tech-icons/tailwind-icon.svg" }
+			]
+		}
+	],
+	"sections": [
+		{
+			"id": "about",
+			"label": "Info"
+		},
+		{
+			"id": "experience",
+			"label": "Experiencia"
+		},
+		{
+			"id": "projects",
+			"label": "Proyectos"
+		}
+	]
 }
