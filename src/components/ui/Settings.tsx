@@ -1,9 +1,11 @@
 import {
+	ArgFlagIcon,
 	LanguageIcon,
 	MoonIcon,
 	PaintBrushIcon,
 	SettingsIcon,
 	SunIcon,
+	USAFlagIcon,
 } from "@ui/icons/Icons";
 import { useEffect, useState } from "preact/hooks";
 
@@ -44,14 +46,16 @@ function SettingsSubMenu({
 						<button
 							type="button"
 							class="hover:scale-110 transition-transform duration-200"
+							onClick={() => handleLanguageChange("es")}
 						>
-							Arg
+							<ArgFlagIcon title="Español AR" height={20} width={20} />
 						</button>
 						<button
 							type="button"
 							class="hover:scale-110 transition-transform duration-200"
+							onClick={() => handleLanguageChange("en")}
 						>
-							Usa
+							<USAFlagIcon title="English US" height={20} width={20} />
 						</button>
 					</>
 				)
@@ -157,7 +161,18 @@ export default function Settings() {
 		setTheme(theme);
 	};
 
-	const handleLanguageChange = (language: Language) => {};
+	const handleLanguageChange = (newLanguage: Language) => {
+		setLanguage(newLanguage);
+
+		const currentPath = window.location.pathname;
+		const currentLanguage = currentPath
+			.split("/")
+			.filter((segment) => segment !== "")[0];
+
+		if (newLanguage !== currentLanguage) {
+			window.location.href = newLanguage;
+		}
+	};
 
 	return (
 		<div class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--card-bg-hover)] rounded-full shadow-lg transition-all duration-300 z-50">
