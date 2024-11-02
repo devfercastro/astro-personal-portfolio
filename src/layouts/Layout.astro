@@ -46,31 +46,44 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-    --bg: #f0f0f0;
+	  /* Color palette */
+		--white: #fff;
+		--black: #000;
+		--gray-50: #f0f0f0;
+		--gray-100: #E0E0E0;
+		--gray-400: #707070;
+		--gray-500: #6B6B6B;
+		--gray-900: #0B0B0B;
+		--gray-950: #0d0d0d;
 
-    /* Social icon */
-    --social-icon: #6B6B6B;
+	  /* Color system */
+    --background: var(--gray-50);
+    --foreground: var(--white);
 
-    /* Badge */
-    --badge-bg: #E0E0E0;
-    --badge-text: #000;
+    /* Typography Colors */
+    --text-primary: var(--black);
+    --text-secundary: var(--gray-400);
+    --text-alt: var(--white);
 
-    /* Nav */
-    --nav-btn-highlight: #fff;
 
-    /* Card */
-    --card-bg-default: transparent;
-    --card-bg-hover: #fff;
-
-    /* Text */
-    --text-primary: #000;
-    --text-secundary: #707070;
-    --text-alt: #f0f0f0;
+    /* Specific variables */
+    --badge-bg: var(--gray-100);
+    --badge-text: var(--black);
+    --social-icon: var(--gray-500);
 	}
+
+	.dark {
+		--background: var(--black);
+		--foreground: var(--gray-900);
+
+		--text-primary: var(--white);
+		--text-alt: var(--black);
+	}
+
 
 	html {
 		font-family: "Inter Tight", system-ui, sans-serif;
-		background: var(--bg);
+		background: var(--background);
 		color: var(--text-primary);
 	}
 
@@ -85,27 +98,5 @@ const { title } = Astro.props;
 		-ms-overflow-style: none;
 		/* Firefox */
 		scrollbar-width: none;
-	}
-
-	.dark {
-	  --bg: #000;
-
-		--nav-btn-highlight: #0d0d0d;
-
-		--card-bg-hover: #0B0B0B;
-
-		--text-primary: #fff;
-		--text-alt: #000;
-	}
-
-	.light {
-	  --bg: #f0f0f0;
-
-		--nav-btn-highlight: #fff;
-
-		--card-bg-hover: #fff;
-
-		--text-primary: #000;
-		--text-alt: #fff;
 	}
 </style>

@@ -25,7 +25,7 @@ const { title, subtitle, body, img, url, urls, badges, time, type } =
 	Astro.props;
 ---
 <li
-  class="h-min flex flex-col rounded-lg shadow-lg lg:shadow-none bg-[var(--card-bg-hover)] lg:bg-[var(--card-bg-default)] hover:shadow-lg hover:bg-[var(--card-bg-hover)] transition-all duration-100 lg:duration-300 group"
+  class="h-min flex flex-col rounded-lg shadow-lg lg:shadow-none bg-[var(--foreground)] lg:bg-transparent hover:shadow-lg hover:bg-[var(--foreground)] transition-all duration-100 lg:duration-300 group"
 >
   {img && <img src={img} alt={title} class="w-full min-h-[280px] object-cover rounded-t-lg border border-[var(--text-primary)]" />}
   <div class="flex flex-col w-full p-4 lg:p-8">

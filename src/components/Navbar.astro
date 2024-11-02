@@ -13,7 +13,7 @@ export const prerender = true;
     {sections.map(({id, label}) => (
       <li class="w-full">
         <button
-          class="flex w-full px-5 py-3 rounded-md font-medium text-lg text-left hover:bg-[var(--nav-btn-highlight)] hover:shadow-lg hover:text-[var(--text)] transition-all duration-300"
+          class="flex w-full px-5 py-3 rounded-md font-medium text-lg text-left hover:bg-[var(--foreground)] hover:shadow-lg hover:text-[var(--text-primary)] transition-all duration-300"
           aria-label={id}
         >
           {label}
@@ -51,7 +51,8 @@ export const prerender = true;
 
           // Scroll to the target section
           sectionsContainer.scrollTo({
-            top: sectionsContainer.scrollTop + relativeTop - offset,           behavior: "smooth"
+            top: sectionsContainer.scrollTop + relativeTop - offset,
+            behavior: "smooth"
           })
         }
       })

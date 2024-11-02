@@ -22,7 +22,7 @@ function SettingsSubMenu({
 	handleLanguageChange?: (language: Language) => void;
 }) {
 	return (
-		<div class="absolute right-[-16px] top-[-16px] hidden group-hover:flex gap-4 items-center bg-[var(--card-bg-hover)] rounded-full p-4 pr-16 opacity-0 group-hover:opacity-100 transition-all duration-all z-[-1] shadow-lg">
+		<div class="absolute right-[-16px] top-[-16px] hidden group-hover:flex gap-4 items-center bg-[var(--foreground)] rounded-full p-4 pr-16 opacity-0 group-hover:opacity-100 transition-all duration-all z-[-1] shadow-lg">
 			{topic === "theme" && handleThemeChange ? (
 				<>
 					<button
@@ -175,7 +175,7 @@ export default function Settings() {
 	};
 
 	return (
-		<div class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--card-bg-hover)] rounded-full shadow-lg transition-all duration-300 z-50">
+		<div class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--foreground)] rounded-full shadow-lg transition-all duration-300 z-50 text-[var(--text-primary)]">
 			<SettingsMainMenu
 				isVisible={isMainMenuVisible}
 				handleThemeChange={handleThemeChange}
