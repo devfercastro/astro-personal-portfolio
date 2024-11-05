@@ -1,6 +1,6 @@
 import { SettingsIcon } from "@ui/icons/Icons";
 import { useEffect, useState } from "preact/hooks";
-import { LanguageMenu, ThemeMenu } from "./submenus";
+import { LanguageMenu, ThemeMenu } from "./Submenus";
 
 type Language = "en" | "es";
 type Theme = "light" | "dark";
