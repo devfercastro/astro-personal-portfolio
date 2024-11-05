@@ -4,14 +4,21 @@ import { LanguageMenu, ThemeMenu } from "./Submenus";
 
 type Language = "en" | "es";
 type Theme = "light" | "dark";
+type MenuState = {
+	main: boolean;
+	language: boolean;
+	theme: boolean;
+};
 
 export default function Settings() {
 	const [theme, setTheme] = useState<Theme>("light");
 	const [language, setLanguage] = useState<Language>("en");
-	const [isMainMenuVisible, setIsMainMenuVisible] = useState<boolean>(false);
-	const [isLanguageMenuVisible, setIsLanguageMenuVisible] =
-		useState<boolean>(false);
-	const [isThemeMenuVisible, setIsThemeMenuVisible] = useState<boolean>(false);
+	useState<boolean>(false);
+	const [menuState, setMenuState] = useState<MenuState>({
+		main: false,
+		language: false,
+		theme: false,
+	});
 
 	// Get theme from localStorage
 	useEffect(() => {
@@ -43,16 +50,45 @@ export default function Settings() {
 		localStorage.setItem("theme", theme);
 	}, [theme]);
 
-	const toggleMainMenuVisibility = () => {
-		setIsMainMenuVisible(!isMainMenuVisible);
-	};
+	// Click outside handler
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+			if (!target.closest("#settings-container"))
+				setMenuState({
+					main: false,
+					language: false,
+					theme: false,
+				});
+		};
 
-	const toggleLanguageMenuVisibility = () => {
-		setIsLanguageMenuVisible(!isLanguageMenuVisible);
-	};
+		document.addEventListener("click", handleClickOutside);
+		return () => document.removeEventListener("click", handleClickOutside);
+	}, []);
 
-	const toggleThemeMenuVisibility = () => {
-		setIsThemeMenuVisible(!isThemeMenuVisible);
+	const toggleMenu = (menuName: keyof MenuState) => (event: MouseEvent) => {
+		event.preventDefault();
+
+		if (menuName === "main") {
+			if (menuState.main) {
+				setMenuState({
+					main: false,
+					language: false,
+					theme: false,
+				});
+			} else {
+				setMenuState({
+					...menuState,
+					main: true,
+				});
+			}
+		} else {
+			setMenuState({
+				...menuState,
+				language: menuName === "language" ? !menuState.language : false,
+				theme: menuName === "theme" ? !menuState.theme : false,
+			});
+		}
 	};
 
 	const handleThemeChange = (theme: Theme) => {
@@ -73,24 +109,27 @@ export default function Settings() {
 	};
 
 	return (
-		<div class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--foreground)] rounded-full shadow-lg transition-all duration-300 z-50 text-[var(--text-primary)]">
+		<div
+			id="settings-container"
+			class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--foreground)] rounded-full shadow-lg transition-all duration-300 z-50 text-[var(--text-primary)]"
+		>
 			<ul
 				class={`${
-					isMainMenuVisible ? "" : "hidden"
+					menuState.main ? "" : "hidden"
 				} relative flex flex-col gap-y-5 mb-10`}
 			>
 				<LanguageMenu
-					isVisible={isLanguageMenuVisible}
-					toggleVisibility={toggleLanguageMenuVisibility}
+					isVisible={menuState.language}
+					toggleVisibility={toggleMenu("language")}
 					handleLanguageChange={handleLanguageChange}
 				/>
 				<ThemeMenu
-					isVisible={isThemeMenuVisible}
-					toggleVisibility={toggleThemeMenuVisibility}
+					isVisible={menuState.theme}
+					toggleVisibility={toggleMenu("theme")}
 					handleThemeChange={handleThemeChange}
 				/>
 			</ul>
-			<button type="button" onClick={toggleMainMenuVisibility}>
+			<button type="button" onClick={toggleMenu("main")}>
 				<SettingsIcon title="Settings" height={20} width={20} />
 			</button>
 		</div>

@@ -16,12 +16,12 @@ export function LanguageMenu({
 	handleLanguageChange,
 }: {
 	isVisible: boolean;
-	toggleVisibility: () => void;
+	toggleVisibility: (e: MouseEvent) => void;
 	handleLanguageChange: (language: Language) => void;
 }) {
 	return (
 		<div class="flex flex-row relative group">
-			<button type="button" onClick={toggleVisibility}>
+			<button type="button" onClick={(e) => toggleVisibility(e)}>
 				<LanguageIcon title="Language" height={20} width={20} />
 			</button>
 			<div
@@ -52,12 +52,12 @@ export function ThemeMenu({
 	handleThemeChange,
 }: {
 	isVisible: boolean;
-	toggleVisibility: () => void;
+	toggleVisibility: (e: MouseEvent) => void;
 	handleThemeChange: (theme: Theme) => void;
 }) {
 	return (
 		<div class="flex flex-row relative group">
-			<button type="button" onClick={toggleVisibility}>
+			<button type="button" onClick={(e) => toggleVisibility(e)}>
 				<PaintBrushIcon title="Theme" height={20} width={20} />
 			</button>
 			<div
