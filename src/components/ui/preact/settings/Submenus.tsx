@@ -23,9 +23,11 @@ const MenuButton = ({
 			class="flex justify-center items-center w-[36px] h-[36px] rounded-full relative overflow-hidden group transition-all duration-300"
 			onClick={clickHandler}
 		>
+			{/* Overlay */}
 			<div class="absolute inset-0 bg-[var(--text-primary)] opacity-0 group-hover:opacity-100 transition-all duration-300" />
+			{/* Icon container */}
 			<div
-				class={`relative z-10 transition-all duration-300 group-hover:text-[var(--text-alt)] group-hover:scale-110 ${
+				class={`relative z-10 transition-all duration-300 group-hover:text-[var(--text-alt)] ${
 					rotation ? "group-hover:rotate-[360deg]" : ""
 				}`}
 			>
@@ -67,14 +69,20 @@ export function LanguageMenu({
 	return (
 		<div class="flex flex-row relative">
 			<MenuButton clickHandler={(e) => toggleVisibility(e)} rotation={true}>
-				<LanguageIcon title="Language" height={20} width={20} />
+				<LanguageIcon title="Language" class="w-5 h-5 group-hover:scale-110" />
 			</MenuButton>
 			<Menu isVisible={isVisible}>
 				<MenuButton clickHandler={() => handleLanguageChange("es")}>
-					<ArgFlagIcon title="English ARG" height={20} width={20} />
+					<ArgFlagIcon
+						title="English ARG"
+						class="w-5 h-5 group-hover:scale-110"
+					/>
 				</MenuButton>
 				<MenuButton clickHandler={() => handleLanguageChange("en")}>
-					<USAFlagIcon title="English US" height={20} width={20} />
+					<USAFlagIcon
+						title="English US"
+						class="w-5 h-5 group-hover:scale-110"
+					/>
 				</MenuButton>
 			</Menu>
 		</div>
@@ -93,14 +101,14 @@ export function ThemeMenu({
 	return (
 		<div class="flex flex-row relative">
 			<MenuButton clickHandler={(e) => toggleVisibility(e)} rotation={true}>
-				<PaintBrushIcon title="Theme" height={20} width={20} />
+				<PaintBrushIcon title="Theme" class="w-5 h-5 group-hover:scale-110" />
 			</MenuButton>
 			<Menu isVisible={isVisible}>
 				<MenuButton clickHandler={() => handleThemeChange("dark")}>
-					<MoonIcon title="Dark theme" height={20} width={20} />
+					<MoonIcon title="Dark theme" class="w-5 h-5 group-hover:scale-110" />
 				</MenuButton>
 				<MenuButton clickHandler={() => handleThemeChange("light")}>
-					<SunIcon title="Light theme" height={20} width={20} />
+					<SunIcon title="Light theme" class="w-5 h-5 group-hover:scale-110" />
 				</MenuButton>
 			</Menu>
 		</div>
