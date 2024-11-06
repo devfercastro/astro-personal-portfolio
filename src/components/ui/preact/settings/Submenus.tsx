@@ -1,3 +1,4 @@
+import type { ComponentChildren } from "preact";
 import {
 	ArgFlagIcon,
 	LanguageIcon,
@@ -9,6 +10,24 @@ import {
 
 type Language = "en" | "es";
 type Theme = "light" | "dark";
+
+const MenuButton = ({
+	children,
+	clickHandler,
+}: {
+	children: ComponentChildren;
+	clickHandler: () => void;
+}) => {
+	return (
+		<button
+			type="button"
+			class="flex justify-center items-center w-[36px] h-[36px] rounded-full hover:bg-[var(--text-primary)] hover:text-[var(--text-alt)]"
+			onClick={clickHandler}
+		>
+			{children}
+		</button>
+	);
+};
 
 export function LanguageMenu({
 	isVisible,
@@ -25,22 +44,14 @@ export function LanguageMenu({
 				<LanguageIcon title="Language" height={20} width={20} />
 			</button>
 			<div
-				class={`absolute right-[-16px] top-[-16px] ${isVisible ? "flex" : "hidden"} group-active:flex gap-4 items-center bg-[var(--foreground)] rounded-full p-4 pr-16 transition-all duration-all z-[-1] shadow-lg`}
+				class={`absolute right-[-16px] top-[-16px] ${isVisible ? "flex" : "hidden"} gap-4 items-center bg-[var(--foreground)] rounded-full p-2 pr-16 z-[-1] shadow-lg`}
 			>
-				<button
-					type="button"
-					class="hover:scale-110 transition-transform duration-200"
-					onClick={() => handleLanguageChange("es")}
-				>
-					<ArgFlagIcon title="Español AR" height={20} width={20} />
-				</button>
-				<button
-					type="button"
-					class="hover:scale-110 transition-transform duration-200"
-					onClick={() => handleLanguageChange("en")}
-				>
+				<MenuButton clickHandler={() => handleLanguageChange("es")}>
+					<ArgFlagIcon title="English ARG" height={20} width={20} />
+				</MenuButton>
+				<MenuButton clickHandler={() => handleLanguageChange("en")}>
 					<USAFlagIcon title="English US" height={20} width={20} />
-				</button>
+				</MenuButton>
 			</div>
 		</div>
 	);
@@ -61,22 +72,14 @@ export function ThemeMenu({
 				<PaintBrushIcon title="Theme" height={20} width={20} />
 			</button>
 			<div
-				class={`absolute right-[-16px] top-[-16px] ${isVisible ? "flex" : "hidden"} group-active:flex gap-4 items-center bg-[var(--foreground)] rounded-full p-4 pr-16 transition-all duration-all z-[-1] shadow-lg`}
+				class={`absolute right-[-16px] top-[-16px] ${isVisible ? "flex" : "hidden"} gap-4 items-center bg-[var(--foreground)] rounded-full p-2 pr-16 z-[-1] shadow-lg`}
 			>
-				<button
-					type="button"
-					class="hover:scale-110 transition-transform duration-200"
-					onClick={() => handleThemeChange("dark")}
-				>
+				<MenuButton clickHandler={() => handleThemeChange("dark")}>
 					<MoonIcon title="Dark theme" height={20} width={20} />
-				</button>
-				<button
-					type="button"
-					class="hover:scale-110 transition-transform duration-200"
-					onClick={() => handleThemeChange("light")}
-				>
+				</MenuButton>
+				<MenuButton clickHandler={() => handleThemeChange("light")}>
 					<SunIcon title="Light theme" height={20} width={20} />
-				</button>
+				</MenuButton>
 			</div>
 		</div>
 	);
