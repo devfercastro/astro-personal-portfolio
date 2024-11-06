@@ -111,12 +111,12 @@ export default function Settings() {
 	return (
 		<div
 			id="settings-container"
-			class="flex flex-col fixed bottom-10 right-10 items-center p-4 bg-[var(--foreground)] rounded-full shadow-lg transition-all duration-300 z-50 text-[var(--text-primary)]"
+			class="flex flex-col fixed bottom-10 right-10 items-center p-2 bg-[var(--foreground)] rounded-full shadow-lg transition-all duration-300 z-50 text-[var(--text-primary)]"
 		>
 			<ul
 				class={`${
 					menuState.main ? "" : "hidden"
-				} relative flex flex-col gap-y-5 mb-10`}
+				} relative flex flex-col gap-y-2 mb-10`}
 			>
 				<LanguageMenu
 					isVisible={menuState.language}
@@ -129,7 +129,11 @@ export default function Settings() {
 					handleThemeChange={handleThemeChange}
 				/>
 			</ul>
-			<button type="button" onClick={toggleMenu("main")}>
+			<button
+				type="button"
+				class="flex justify-center items-center w-[36px] h-[36px] rounded-full hover:bg-[var(--text-primary)] hover:text-[var(--text-alt)] transition-all transition-duration-400"
+				onClick={toggleMenu("main")}
+			>
 				<SettingsIcon title="Settings" height={20} width={20} />
 			</button>
 		</div>
