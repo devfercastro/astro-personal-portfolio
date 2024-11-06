@@ -121,11 +121,13 @@ export default function Settings() {
 					isVisible={menuState.language}
 					toggleVisibility={toggleMenu("language")}
 					handleLanguageChange={handleLanguageChange}
+					currentLanguage={language}
 				/>
 				<ThemeMenu
 					isVisible={menuState.theme}
 					toggleVisibility={toggleMenu("theme")}
 					handleThemeChange={handleThemeChange}
+					currentTheme={theme}
 				/>
 			</ul>
 			<MenuButton clickHandler={toggleMenu("main")} rotation={true}>
