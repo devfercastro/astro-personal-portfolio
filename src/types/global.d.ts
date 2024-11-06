@@ -36,3 +36,6 @@ type Section = {
 	id: string;
 	label: string;
 };
+
+type Language = "en" | "es";
+type Theme = "light" | "dark";

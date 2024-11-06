@@ -8,17 +8,14 @@ import {
 	USAFlagIcon,
 } from "../../icons/Icons";
 
-type Language = "en" | "es";
-type Theme = "light" | "dark";
-
 const MenuButton = ({
 	children,
 	clickHandler,
-	rotation = false, // default value is false
+	rotation = false,
 }: {
 	children: ComponentChildren;
 	clickHandler: (e: MouseEvent) => void;
-	rotation?: boolean; // make it optional
+	rotation?: boolean;
 }) => {
 	return (
 		<button
