@@ -1,5 +1,6 @@
 import { SettingsIcon } from "@ui/icons/Icons";
 import { useEffect, useState } from "preact/hooks";
+import MenuButton from "./MenuButton";
 import { LanguageMenu, ThemeMenu } from "./Submenus";
 
 type MenuState = {
@@ -127,13 +128,9 @@ export default function Settings() {
 					handleThemeChange={handleThemeChange}
 				/>
 			</ul>
-			<button
-				type="button"
-				class="flex justify-center items-center w-[36px] h-[36px] rounded-full hover:bg-[var(--text-primary)] hover:text-[var(--text-alt)] transition-all transition-duration-400"
-				onClick={toggleMenu("main")}
-			>
-				<SettingsIcon title="Settings" height={20} width={20} />
-			</button>
+			<MenuButton clickHandler={toggleMenu("main")} rotation={true}>
+				<SettingsIcon title="Settings" class="w-5 h-5 group-hover:scale-110" />
+			</MenuButton>
 		</div>
 	);
 }

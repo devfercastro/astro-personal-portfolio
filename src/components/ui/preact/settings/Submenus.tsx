@@ -1,4 +1,3 @@
-import type { ComponentChildren } from "preact";
 import {
 	ArgFlagIcon,
 	LanguageIcon,
@@ -8,54 +7,8 @@ import {
 	USAFlagIcon,
 } from "../../icons/Icons";
 
-const MenuButton = ({
-	children,
-	clickHandler,
-	rotation = false,
-}: {
-	children: ComponentChildren;
-	clickHandler: (e: MouseEvent) => void;
-	rotation?: boolean;
-}) => {
-	return (
-		<button
-			type="button"
-			class="flex justify-center items-center w-[36px] h-[36px] rounded-full relative overflow-hidden group transition-all duration-300"
-			onClick={clickHandler}
-		>
-			{/* Overlay */}
-			<div class="absolute inset-0 bg-[var(--text-primary)] opacity-0 group-hover:opacity-100 transition-all duration-300" />
-			{/* Icon container */}
-			<div
-				class={`relative z-10 transition-all duration-300 group-hover:text-[var(--text-alt)] ${
-					rotation ? "group-hover:rotate-[360deg]" : ""
-				}`}
-			>
-				{children}
-			</div>
-		</button>
-	);
-};
-
-const Menu = ({
-	isVisible,
-	children,
-}: {
-	isVisible: boolean;
-	children: ComponentChildren;
-}) => {
-	return (
-		<div
-			class={`absolute right-[-8px] top-[-8px] flex items-center bg-[var(--foreground)] rounded-full gap-x-2 p-2 pr-16 z-[-1] shadow-lg transition-all duration-300 ${
-				isVisible
-					? "opacity-100 scale-100 pointer-events-auto"
-					: "opacity-0 scale-95 pointer-events-none"
-			}`}
-		>
-			{children}
-		</div>
-	);
-};
+import Menu from "./Menu";
+import MenuButton from "./MenuButton";
 
 export function LanguageMenu({
 	isVisible,
