@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { ComponentChildren } from "preact";
 
 const Menu = ({
@@ -7,17 +8,30 @@ const Menu = ({
 	isVisible: boolean;
 	children: ComponentChildren;
 }) => {
-	return (
-		<div
-			class={`absolute right-[-8px] top-[-8px] flex items-center bg-[var(--foreground)] rounded-full gap-x-2 p-2 pr-16 z-[-1] shadow-lg transition-all duration-300 ${
-				isVisible
-					? "opacity-100 scale-100 pointer-events-auto"
-					: "opacity-0 scale-95 pointer-events-none"
-			}`}
-		>
-			{children}
-		</div>
+	const menuClasses = clsx(
+		// Position and layout
+		"absolute right-[-8px] top-[-8px]",
+		"flex items-center gap-x-2",
+
+		// Appearance
+		"bg-[var(--foreground)]",
+		"rounded-full",
+		"shadow-lg",
+
+		// Padding and z-index
+		"p-2 pr-16",
+		"z-[-1]",
+
+		// Transitions
+		"transition-all duration-300",
+
+		// State-dependent classes
+		{
+			"opacity-100 scale-100 pointer-events-auto": isVisible,
+			"opacity-0 scale-95 pointer-events-none": !isVisible,
+		},
 	);
+	return <div class={menuClasses}>{children}</div>;
 };
 
 export default Menu;

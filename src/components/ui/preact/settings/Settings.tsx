@@ -1,4 +1,5 @@
 import { SettingsIcon } from "@ui/icons/Icons";
+import clsx from "clsx";
 import { useEffect, useState } from "preact/hooks";
 import MenuButton from "./MenuButton";
 import { LanguageMenu, ThemeMenu } from "./Submenus";
@@ -107,16 +108,36 @@ export default function Settings() {
 		}
 	};
 
+	const containerClasses = clsx(
+		// Layout
+		"flex flex-col fixed bottom-10 right-10 items-center p-2",
+
+		// Appearance
+		"bg-[var(--foreground)]",
+		"rounded-full",
+		"shadow-lg",
+
+		// Position and z-index
+		"z-50",
+		"text-[var(--text-primary)]",
+	);
+
+	const menuListClasses = clsx(
+		// Position and layout
+		"relative flex flex-col gap-y-2",
+
+		// Transitions
+		"transition-all duration-300",
+
+		{
+			"max-h-[200px] opacity-100 mb-10": menuState.main,
+			"max-h-0 opacity-0 mb-0": !menuState.main,
+		},
+	);
+
 	return (
-		<div
-			id="settings-container"
-			class="flex flex-col fixed bottom-10 right-10 items-center p-2 bg-[var(--foreground)] rounded-full shadow-lg transition-all duration-300 z-50 text-[var(--text-primary)]"
-		>
-			<ul
-				class={`${
-					menuState.main ? "" : "hidden"
-				} relative flex flex-col gap-y-2 mb-10`}
-			>
+		<div id="settings-container" class={containerClasses}>
+			<ul class={menuListClasses}>
 				<LanguageMenu
 					isVisible={menuState.language}
 					toggleVisibility={toggleMenu("language")}
