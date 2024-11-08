@@ -1,10 +1,11 @@
 ---
 import About from "@components/About.astro";
 import Experience from "@components/Experience.astro";
-import Navbar from "@components/Navbar.astro";
+// import Navbar from "@components/Navbar.astro";
 import Projects from "@components/Projects.astro";
 import Welcome from "@components/Welcome.astro";
 import SocialBar from "@components/ui/SocialBar.astro";
+import Navbar from "@components/ui/preact/navbar/Navbar.tsx";
 import Layout from "@src/layouts/Layout.astro";
 
 import i18n from "@utils/i18n";
@@ -26,10 +27,10 @@ export const prerender = false;
 			<div class="flex flex-col h-min mb-20 lg:h-full lg:w-1/2 lg:mr-20 lg:mb-0 lg:py-10">
 				<h1 class="lg:hidden text-4xl font-bold mb-2">Fernando Castro</h1>
 				<h3 class="text-lg lg:text-xl font-semibold">{t("description")}</h3>
-				<Navbar sections={t("sections") as Section[]} tailwindClass="hidden w-full lg:mt-12  lg:block"/>
+				<Navbar sectionsInfo={t("sections") as Section[]} tailwindClass="hidden relative w-full lg:mt-12  lg:block" client:load />
 				<SocialBar tailwindClass="flex flex-row justify-start mt-8 gap-x-[2rem] lg:mt-auto"/>
 			</div>
-			<div id="sectionsContainer" class="h-full w-full lg:overflow-auto flex flex-col gap-y-32 scrollbar-hide scroll-smooth lg:pt-10">
+			<div id="section-container" class="h-full w-full lg:overflow-auto flex flex-col gap-y-32 scrollbar-hide scroll-smooth lg:pt-10">
 				<About lang={defLang} id="about" tailwindClass="content-section w-full text-lg"/>
 				<Experience lang={defLang} id="experience" tailwindClass="content-section" />
 				<Projects lang={defLang} id="projects" tailwindClass="content-section" />
