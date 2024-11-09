@@ -12,7 +12,8 @@
 	"language_servers": [
 		"biome",
 		"typescript-language-server",
-		"tailwindcss-language-server"
+		"tailwindcss-language-server",
+		"astro-language-server"
 	],
 	"code_actions_on_format": {
 		"source.organizeImports.biome": true
