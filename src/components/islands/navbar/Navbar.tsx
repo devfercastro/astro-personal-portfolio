@@ -78,9 +78,10 @@ export default function Navbar({ sectionsInfo, tailwindClass }: NavbarProps) {
 			// Layout
 			"flex w-full h-[52px] px-5 py-3 rounded-md",
 			// Typography
+			"text-md",
 			{
-				"text-[var(--text-alt)] text-lg": index === activeIndex,
-				"text-[var(--text-primary)] text-md": index !== activeIndex,
+				"text-[var(--text-alt)]": index === activeIndex,
+				"text-[var(--text-primary)]": index !== activeIndex,
 			},
 			"font-medium text-left",
 			// Transition
