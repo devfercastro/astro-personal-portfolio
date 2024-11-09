@@ -1,6 +1,6 @@
 ---
-import ArrowTopRightOnSquareIcon from "@ui/icons/ArrowTopRightOnSquareIcon.astro";
-import GithubIcon from "@ui/icons/GithubIcon.astro";
+import GitHubIcon from "@icons/social/GithubIcon.astro";
+import ArrowTopRightOnSquareIcon from "@icons/ui/ArrowTopRightOnSquareIcon.astro";
 
 import Badge from "./Badge.astro";
 
@@ -35,7 +35,7 @@ const { title, subtitle, body, img, url, urls, badges, time, type } =
           <h2 class="font-semibold text-xl">{title}</h2>
           <div class="flex flex-row gap-2">
             <a href={urls?.code} target="_blank" rel="noopener noreferrer">
-              <GithubIcon height={24} width={24} title="Github repo" />
+              <GitHubIcon height={24} width={24} title="Github repo" />
             </a>
             <a href={urls?.preview} target="_blank" rel="noopener noreferrer">
               <ArrowTopRightOnSquareIcon height={24} width={24} title="Live preview" />

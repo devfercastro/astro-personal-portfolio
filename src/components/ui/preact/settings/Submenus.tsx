@@ -5,7 +5,7 @@ import {
 	PaintBrushIcon,
 	SunIcon,
 	USAFlagIcon,
-} from "../../icons/Icons";
+} from "@icons/tsx-icons/Icons";
 
 import Menu from "./Menu";
 import MenuButton from "./MenuButton";

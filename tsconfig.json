@@ -8,7 +8,7 @@
 			"@src/*": ["src/*"],
 			"@components/*": ["src/components/*"],
 			"@public/*": ["public/*"],
-			"@ui/*": ["src/components/ui/*"],
+			"@icons/*": ["src/components/icons/*"],
 			"@utils/*": ["src/utils/*"]
 		}
 	}

@@ -1,7 +1,7 @@
 ---
-import GithubIcon from "@ui/icons/GithubIcon.astro";
-import LinkedinIcon from "@ui/icons/LinkedinIcon.astro";
-import TwitterIcon from "@ui/icons/TwitterIcon.astro";
+import GitHubIcon from "@icons/social/GithubIcon.astro";
+import LinkedinIcon from "@icons/social/LinkedinIcon.astro";
+import TwitterIcon from "@icons/social/TwitterIcon.astro";
 
 interface Props {
 	id?: string;
@@ -21,7 +21,7 @@ export const prerender = true;
 <div id={id} class={tailwindClass}>
   <a href="https://github.com/devfercastro" target="_blank" rel="noopener noreferrer">
     <span class="sr-only">Github</span>
-    <GithubIcon height={socialIconProps.size} width={socialIconProps.size} class={socialIconProps.animation} title="My Github Profile" />
+    <GitHubIcon height={socialIconProps.size} width={socialIconProps.size} class={socialIconProps.animation} title="My Github Profile" />
   </a>
   <a href="https://www.linkedin.com/in/devfercastro/" target="_blank" rel="noopener noreferrer">
     <span class="sr-only">Linkedin</span>

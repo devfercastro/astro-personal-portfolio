@@ -1,4 +1,4 @@
-import { SettingsIcon } from "@ui/icons/Icons";
+import { SettingsIcon } from "@icons/tsx-icons/Icons";
 import clsx from "clsx";
 import { useEffect, useState } from "preact/hooks";
 import MenuButton from "./MenuButton";
