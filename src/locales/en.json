@@ -8,7 +8,7 @@
 	],
 	"experience": [
 		{
-			"job": "Frontend Developer",
+			"role": "Frontend Developer",
 			"company": "Battlerol",
 			"time": 1,
 			"description": "Developed role-playing games using HTML, CSS, and JavaScript",

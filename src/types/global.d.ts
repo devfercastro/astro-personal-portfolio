@@ -1,5 +1,5 @@
 interface ExperiencesItem {
-	job: string;
+	role: string;
 	company: string;
 	time: number;
 	description: string;
