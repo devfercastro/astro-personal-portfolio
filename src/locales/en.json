@@ -22,7 +22,7 @@
 	],
 	"projects": [
 		{
-			"title": "Portfolio",
+			"name": "Portfolio",
 			"description": "Personal portfolio created with Astro and Tailwind CSS",
 			"image": "/projects/portfolio.png",
 			"urls": {

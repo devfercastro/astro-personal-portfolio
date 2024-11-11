@@ -8,7 +8,7 @@ interface ExperiencesItem {
 }
 
 interface ProjectsItem {
-	title: string;
+	name: string;
 	description: string;
 	image: string;
 	urls: {
