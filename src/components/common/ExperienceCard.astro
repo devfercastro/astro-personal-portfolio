@@ -3,11 +3,6 @@ import ArrowTopRightOnSquareIcon from "@icons/ui/ArrowTopRightOnSquareIcon.astro
 
 import Badge from "./Badge.astro";
 
-type BadgeItem = {
-	text: string;
-	icon: string;
-};
-
 interface Props extends ExperiencesItem {}
 
 const { role, company, description, url, badges, time } = Astro.props;
