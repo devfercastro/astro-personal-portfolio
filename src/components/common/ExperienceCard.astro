@@ -1,0 +1,53 @@
+---
+import ArrowTopRightOnSquareIcon from "@icons/ui/ArrowTopRightOnSquareIcon.astro";
+
+import Badge from "./Badge.astro";
+
+type BadgeItem = {
+	text: string;
+	icon: string;
+};
+
+interface Props extends ExperiencesItem {}
+
+const { role, company, description, url, badges, time } = Astro.props;
+---
+<li
+  class="h-min flex flex-col rounded-lg shadow-lg lg:shadow-none bg-[var(--foreground)] lg:bg-transparent hover:shadow-lg hover:bg-[var(--foreground)] transition-all duration-100 lg:duration-300 group"
+>
+  <div class="flex flex-col w-full p-4 lg:p-8">
+    <header class="w-full flex flex-col mb-4">
+      <div class="relative flex flex-row gap-2 items-center group w-min mb-2">
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          <h2 class="font-semibold text-xl whitespace-nowrap">
+            {company}
+          </h2>
+        </a>
+        <ArrowTopRightOnSquareIcon
+          height={20}
+          width={20}
+          class="lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        />
+        <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[var(--text-primary)] transition-all duration-300 rounded-lg group-hover:w-full" />
+      </div>
+      <div class="w-full flex flex-row items-center justify-between">
+        <h3 class="font-semibold text-lg">{role}</h3>
+        <Badge text={`${time} years`} />
+      </div>
+    </header>
+    <div class="flex flex-col">
+      <p class="mb-2 text-base text-[var(--text-secundary)]">{description}</p>
+      <div class="flex flex-row w-full">
+        <p class="text-sm font-medium whitespace-nowrap mt-1 mr-5 h-full text-start">Tech Stack:</p>
+        <div class="flex flex-wrap gap-x-3 gap-y-2">
+          {badges?.map((badge) => (
+            <Badge
+              text={badge.text}
+              icon={badge.icon}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

@@ -1,5 +1,5 @@
 ---
-import Card from "@components/common/Card.astro";
+import ExperienceCard from "@components/common/ExperienceCard.astro";
 import i18n from "@utils/i18n";
 
 interface Props {
@@ -18,13 +18,12 @@ export const prerender = true;
 	<h1 class="text-xl font-medium mb-5 lg:hidden">Experience</h1>
 	<ul class="w-full flex flex-col gap-y-5">
 		{experienceContent.map((experience) => (
-			<Card
-				title={experience.job}
-				subtitle={experience.company}
+			<ExperienceCard
+				role={experience.role}
+				company={experience.company}
 				time={experience.time}
-				body={experience.description}
+				description={experience.description}
 				url={experience.url}
-				type="experience"
 				badges={experience.badges}
 				/>
 		))}
