@@ -1,0 +1,44 @@
+---
+import GitHubIcon from "@icons/social/GithubIcon.astro";
+import ArrowTopRightOnSquareIcon from "@icons/ui/ArrowTopRightOnSquareIcon.astro";
+
+import Badge from "./Badge.astro";
+
+interface Props extends ProjectsItem {}
+
+const { name, description, image, urls, badges } = Astro.props;
+---
+<li
+  class="h-min flex flex-col rounded-lg shadow-lg lg:shadow-none bg-[var(--foreground)] lg:bg-transparent hover:shadow-lg hover:bg-[var(--foreground)] transition-all duration-100 lg:duration-300 group"
+>
+  <img src={image} alt={name} class="w-full min-h-[280px] object-cover rounded-t-lg border border-[var(--text-primary)]" />
+  <div class="flex flex-col w-full p-4 lg:p-8">
+    <header class="w-full flex flex-col mb-3">
+      <div class="w-full flex flex-row justify-between">
+        <h2 class="font-semibold text-xl">{name}</h2>
+        <div class="flex flex-row gap-2">
+          <a href={urls?.code} target="_blank" rel="noopener noreferrer">
+            <GitHubIcon height={24} width={24} title="Github repo" />
+          </a>
+          <a href={urls?.preview} target="_blank" rel="noopener noreferrer">
+            <ArrowTopRightOnSquareIcon height={24} width={24} title="Live preview" />
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="flex flex-col">
+      <p class="mb-2 text-base text-[var(--text-secundary)]">{description}</p>
+      <div class="flex flex-row w-full">
+        <p class="text-sm font-medium whitespace-nowrap mt-1 mr-5 h-full text-start">Tech Stack:</p>
+        <div class="flex flex-wrap gap-x-3 gap-y-2">
+          {badges?.map((badge) => (
+            <Badge
+              text={badge.text}
+              icon={badge.icon}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
