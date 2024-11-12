@@ -3,6 +3,7 @@ import GitHubIcon from "@icons/social/GithubIcon.astro";
 import ArrowTopRightOnSquareIcon from "@icons/ui/ArrowTopRightOnSquareIcon.astro";
 
 import Badge from "./Badge.astro";
+import Underline from "./Underline.astro";
 
 interface Props extends ProjectsItem {}
 
@@ -15,7 +16,9 @@ const { name, description, image, urls, badges } = Astro.props;
   <div class="flex flex-col w-full p-4 lg:p-8">
     <header class="w-full flex flex-col mb-3">
       <div class="w-full flex flex-row justify-between">
-        <h2 class="font-semibold text-xl">{name}</h2>
+        <Underline>
+          <h2 class="font-semibold text-xl">{name}</h2>
+        </Underline>
         <div class="flex flex-row gap-2 lg:opacity-0 group-hover:opacity-100 transition-all duration-300">
           <a href={urls?.code} target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-all duration-300">
             <GitHubIcon title="Github repo" class="w-5 h-5" />

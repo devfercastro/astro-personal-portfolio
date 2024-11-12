@@ -1,0 +1,11 @@
+---
+interface Props {
+	xclasses?: string;
+}
+
+const { xclasses } = Astro.props;
+---
+<div class={`relative pr-2 ${xclasses}`}>
+  <slot />
+  <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[var(--text-primary)] group-hover:w-full transition-all duration-300 rounded-lg"></span>
+</div>

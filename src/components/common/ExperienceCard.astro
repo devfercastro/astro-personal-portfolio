@@ -2,6 +2,7 @@
 import ArrowTopRightOnSquareIcon from "@icons/ui/ArrowTopRightOnSquareIcon.astro";
 
 import Badge from "./Badge.astro";
+import Underline from "./Underline.astro";
 
 interface Props extends ExperiencesItem {}
 
@@ -12,19 +13,18 @@ const { role, company, description, url, badges, time } = Astro.props;
 >
   <div class="flex flex-col w-full p-4 lg:p-8">
     <header class="w-full flex flex-col mb-4">
-      <div class="relative flex flex-row gap-2 items-center group w-min mb-2">
-        <a href={url} target="_blank" rel="noopener noreferrer">
+      <Underline xclasses="flex flex-row gap-2 items-center w-min mb-2">
+        <a href={url} target="_blank" rel="noopener noreferrer" class="flex flex-row items-center gap-2">
           <h2 class="font-semibold text-xl whitespace-nowrap">
             {company}
           </h2>
+          <ArrowTopRightOnSquareIcon
+            height={20}
+            width={20}
+            class="lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          />
         </a>
-        <ArrowTopRightOnSquareIcon
-          height={20}
-          width={20}
-          class="lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        />
-        <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-[var(--text-primary)] transition-all duration-300 rounded-lg group-hover:w-full" />
-      </div>
+      </Underline>
       <div class="w-full flex flex-row items-center justify-between">
         <h3 class="font-semibold text-lg">{role}</h3>
         <Badge text={`${time} years`} />
