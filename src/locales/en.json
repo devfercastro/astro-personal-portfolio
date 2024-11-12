@@ -22,8 +22,8 @@
 	],
 	"projects": [
 		{
-			"name": "Portfolio",
-			"description": "Personal portfolio created with Astro and Tailwind CSS",
+			"name": "Personal Portfolio",
+			"description": "Personal portfolio created with Astro, Tailwind CSS and Preact",
 			"image": "/projects/portfolio.png",
 			"urls": {
 				"preview": "https://astro-personal-portfolio.vercel.app/",
@@ -31,7 +31,8 @@
 			},
 			"badges": [
 				{ "text": "astro", "icon": "/tech-icons/astro-icon.svg" },
-				{ "text": "tailwind", "icon": "/tech-icons/tailwind-icon.svg" }
+				{ "text": "tailwind", "icon": "/tech-icons/tailwind-icon.svg" },
+				{ "text": "preact", "icon": "/tech-icons/preact-icon.svg" }
 			]
 		}
 	],
