@@ -1,0 +1,28 @@
+- [x] Setup the Astro framework for the portfolio project.
+- [x] Integrated Tailwind CSS for styling.
+- [x] Installed Heroicons for icons.
+- [x] Implemented smooth scrolling with anchor links.
+- [x] Added custom Tailwind animations (currently used in the welcome component).
+- [x] Set up dynamic element generation for the experience component (based on an array of objects).
+- [x] Added prerender support and set specific components to render server-side.
+- [x] Deployed the project on Vercel.
+- [x] Created templates for Contact and Projects sections.
+- [x] Added a footer with tech credits.
+- [x] Added a social bar with GitHub, LinkedIn, and Twitter links.
+- [x] Removed React and React-DOM from the project.
+- [x] Converted React components to Astro components (including decentralizing the Icon component).
+- [x] Improved accessibility features in the project.
+- [x] Implemented a navbar that highlights sections based on the current viewport using `intersectionObserver`.
+- [x] Centralized text content into a `content.ts` file.
+- [x] Centralized types into `global.d.ts`.
+- [x] Replaced hardcoded placeholder data with final content in the experience and project sections.
+- [x] Enhanced card styling (added borders to images, clickable cards, improved font sizes and layout).
+- [x] Updated navbar observer to handle smaller content after replacing placeholders.
+- [x] Adjusted layout and padding for large displays.
+- [x] Improved the footer's placement for better scrolling.
+- [x] Added project previews with images.
+- [x] Update the README file with the latest changes.
+- [x] Add a light theme to the portfolio.
+- [x] Improve cards hover effects.
+- [ ] Make the navbar responsive for mobile devices (maybe).
+- [ ] Add more projects.
